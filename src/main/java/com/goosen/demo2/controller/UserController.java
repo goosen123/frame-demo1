@@ -21,12 +21,12 @@ public class UserController extends BaseController {
 	protected Logger log = LoggerFactory.getLogger(getClass());
 
 	@RequestMapping(value = {"list"})
-	public void list(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
 		
 		log.info("进来了<<<<<<<<<<<<<<<<<<<<");
 		
-		return;
-//		return "modules/test/success";
+//		return;
+		return "modules/test/success";
 	}
 	
 }

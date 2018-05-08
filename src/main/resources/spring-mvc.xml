@@ -19,9 +19,9 @@
 	</context:component-scan> 
 	
 	<!-- 配置切面的类 -->
-	<bean id="serviceAspect" class="com.goosen.demo2.commons.aop.AnnotationTest"/> 
+	<!-- <bean id="serviceAspect" class="com.goosen.demo2.commons.aop.RestControllerAspect"/>  -->
 	<!-- 开启aop注解方式，此步骤不能少，这样java类中的aop注解才会生效 -->
-    <aop:aspectj-autoproxy/>
+    <!-- <aop:aspectj-autoproxy/> -->
     
 	<!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
 	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
