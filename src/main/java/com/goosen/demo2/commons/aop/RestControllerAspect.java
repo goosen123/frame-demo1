@@ -18,9 +18,13 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+
+
+import com.alibaba.fastjson.JSONObject;
 //import com.alibaba.fastjson.JSON;
 //import com.alibaba.fastjson.JSONObject;
 import com.goosen.demo2.commons.utils.IpUtil;
+import com.goosen.demo2.commons.utils.JsonUtil;
 import com.goosen.demo2.commons.constants.HeaderConstants;
 //import com.frame.commons.web.handler.GlobalExceptionHandler;
 //import com.frame.user.model.bo.LoginUser;
@@ -74,10 +78,10 @@ public class RestControllerAspect {
 		log.info("Started request requester [{}] method [{}] params [{}] IP [{}] callSource [{}] appVersion [{}] apiVersion [{}] userAgent [{}]", requester, methodName, params, ip, callSource, appVersion, apiVersion, userAgent);
 		long start = System.currentTimeMillis();
 		Object result = joinPoint.proceed();
-		if(result == null)
-			result = "123";
+		//if(result == null)
+		//	result = "123";
 		log.info("Ended request requester [{}] method [{}] params[{}] response is [{}] cost [{}] millis ",
-				requester, methodName, params, result.toString(), System.currentTimeMillis() - start);//this.deleteSensitiveContent(result)
+				requester, methodName, params, this.deleteSensitiveContent(result), System.currentTimeMillis() - start);//result.toString()
 		return result;
 	}
 
@@ -104,7 +108,7 @@ public class RestControllerAspect {
 				long size = ((MultipartFile) arg).getSize();
 				paramStr = MultipartFile.class.getSimpleName() + " size:" + size;
 			} else {
-				paramStr = arg.toString();//this.deleteSensitiveContent(arg)
+				paramStr = this.deleteSensitiveContent(arg);//arg.toString();//
 			}
 			sb.append(paramStr).append(",");
 		}
@@ -117,31 +121,31 @@ public class RestControllerAspect {
 //				&& !method.getDeclaringClass().equals(GlobalExceptionHandler.class);
 //	}
 
-//	/**
-//	 * 删除参数中的敏感内容
-//	 * @param obj 参数对象
-//	 * @return 去除敏感内容后的参数对象
-//	 */
-//	private String deleteSensitiveContent(Object obj) {
-//		JSONObject jsonObject = new JSONObject();
-//		if (obj == null || obj instanceof Exception) {
-//			return jsonObject.toJSONString();
-//		}
-//
-//		try {
-//			String param = JSON.toJSONString(obj);
-//			jsonObject = JSONObject.parseObject(param);
-//			List<String> sensitiveFieldList = this.getSensitiveFieldList();
-//			for (String sensitiveField : sensitiveFieldList) {
-//				if (jsonObject.containsKey(sensitiveField)) {
-//					jsonObject.put(sensitiveField, "******");
-//				}
-//			}
-//		} catch (ClassCastException e) {
-//			return String.valueOf(obj);
-//		}
-//		return jsonObject.toJSONString();
-//	}
+	/**
+	 * 删除参数中的敏感内容
+	 * @param obj 参数对象
+	 * @return 去除敏感内容后的参数对象
+	 */
+	private String deleteSensitiveContent(Object obj) {
+		JSONObject jsonObject = new JSONObject();
+		if (obj == null || obj instanceof Exception) {
+			return jsonObject.toJSONString();
+		}
+
+		try {
+			String param = JsonUtil.toJSONString(obj);
+			jsonObject = JSONObject.parseObject(param);
+			List<String> sensitiveFieldList = this.getSensitiveFieldList();
+			for (String sensitiveField : sensitiveFieldList) {
+				if (jsonObject.containsKey(sensitiveField)) {
+					jsonObject.put(sensitiveField, "******");
+				}
+			}
+		} catch (ClassCastException e) {
+			return String.valueOf(obj);
+		}
+		return jsonObject.toJSONString();
+	}
 
 	/**
 	 * 敏感字段列表
