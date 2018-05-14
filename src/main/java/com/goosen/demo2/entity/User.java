@@ -1,7 +1,17 @@
 package com.goosen.demo2.entity;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.goosen.demo2.commons.validator.CreateGroup;
+
 public class User {
 	private String id;
+	 /**
+     * 昵称
+     */
+    @NotBlank
+    @Length(min = 1, max = 64, groups = CreateGroup.class)
 	private String nickName;
 	private String pwd;
 	

@@ -1,11 +1,36 @@
-package com.goosen.demo2.commons.exception;
+package com.goosen.demo2.commons.handler;
+
+import com.goosen.demo2.commons.enums.ResultCode;
+import com.goosen.demo2.commons.exception.BusinessException;
+import com.goosen.demo2.commons.helper.ParameterInvalidItemHelper;
+import com.goosen.demo2.commons.model.ParameterInvalidItem;
+import com.goosen.demo2.commons.result.DefaultErrorResult;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+//import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.BindException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
-public class BaseAggregationLayerGlobalExceptionHandler {
-	protected Logger log = LoggerFactory.getLogger(getClass());
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.ConstraintViolationException;
+
+import java.util.List;
+
+/**
+ * @desc 全局异常处理基础类
+ * 
+ * @author zhumaer
+ * @since 10/10/2017 9:54 AM
+ */
+//@Slf4j
+public class BaseGlobalExceptionHandler {
 	
+	protected Logger log = LoggerFactory.getLogger(getClass());
+
 	/**
 	 * 违反约束异常
 	 */
@@ -60,4 +85,5 @@ public class BaseAggregationLayerGlobalExceptionHandler {
 		log.error("handleRuntimeException start, uri:{}, caused by: ", request.getRequestURI(), e);
 		return DefaultErrorResult.failure(ResultCode.SYSTEM_INNER_ERROR, e, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+
 }
