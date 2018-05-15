@@ -24,6 +24,7 @@ public class ResponseResultInterceptor implements HandlerInterceptor {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+		//System.out.println("进入ResponseResultInterceptor拦截器了");
 		if (handler instanceof HandlerMethod) {
 			final HandlerMethod handlerMethod = (HandlerMethod) handler;
 			final Class<?> clazz = handlerMethod.getBeanType();

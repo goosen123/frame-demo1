@@ -618,6 +618,19 @@
 			</exclusions>
 		</dependency> -->
 		
+		<!-- 后来加的jar -->
+		<dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
+            <version>3.4.0</version><!--这里使用时去看看最新版本哈-->
+        </dependency>
+        
+        <dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>5.1.2</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

@@ -13,11 +13,20 @@
     <!-- 加载配置属性文件 -->
 	<context:property-placeholder ignore-unresolvable="true" location="classpath:application.properties" />
 	
-	<!-- 使用Annotation自动注册Bean,只扫描@Controller -->
-    <context:component-scan base-package="com.goosen.demo2" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-	</context:component-scan> 
+	<!-- <context:component-scan base-package="com.goosen.demo2.service"/> 
+    <context:component-scan base-package="com.goosen.demo2.service.impl"/> 
+    <context:component-scan base-package="com.goosen.demo2.dao"/> --> 
 	
+	<!-- 使用Annotation自动注册Bean,只扫描@Controller -->
+    <!-- <context:component-scan base-package="com.goosen.demo2" use-default-filters="false">base-package 如果多个，用“,”分隔
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		需要把@ControllerAdvice包含进来，否则不起作用     ResponseResultHandler中统一返回形式
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/> 
+	</context:component-scan>  -->
+	
+	<context:component-scan base-package="com.goosen.demo2.*" />
+	
+	<!-- aop -->
 	<!-- 配置切面的类 -->
 	<bean id="serviceAspect" class="com.goosen.demo2.commons.aop.RestControllerAspect"/>  
 	<!-- 开启aop注解方式，此步骤不能少，这样java类中的aop注解才会生效 -->
@@ -37,6 +46,7 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	
+	<!-- 拦截器 -->
 	<mvc:interceptors>
          <mvc:interceptor>
              <!-- 拦截所有URL中包含/**的请求 -->
@@ -44,7 +54,7 @@
              <bean class="com.goosen.demo2.commons.interceptor.ResponseResultInterceptor"></bean>
          </mvc:interceptor>
      </mvc:interceptors>
-	
+     
     <!-- REST中根据URL后缀自动判定Content-Type及相应的View -->
 	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
 	    <property name="mediaTypes" >
