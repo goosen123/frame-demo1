@@ -622,8 +622,14 @@
 		<dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper</artifactId>
-            <version>3.4.0</version><!--这里使用时去看看最新版本哈-->
-        </dependency>
+            <version>3.4.0</version><!-- 这里使用时去看看最新版本哈 -->
+        </dependency> 
+        <!-- 通用Mapper -->
+		<!-- <dependency>
+			<groupId>com.github.abel533</groupId>
+			<artifactId>mapper</artifactId>
+			<version>2.3.4</version>
+		</dependency> -->
         
         <dependency>
 			<groupId>com.github.pagehelper</groupId>

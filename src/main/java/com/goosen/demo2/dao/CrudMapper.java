@@ -1,5 +1,7 @@
 package com.goosen.demo2.dao;
 
+import com.goosen.demo2.commons.annotations.MyBatisDao;
+
 
 
 /**
@@ -8,6 +10,7 @@ package com.goosen.demo2.dao;
  * @author zhumaer
  * @since 10/18/2017 18:31 PM
  */
+@MyBatisDao
 public interface CrudMapper<T> extends
 		InsertMapper<T>,
 		DeleteMapper<T>,

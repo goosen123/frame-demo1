@@ -27,8 +27,8 @@ import com.goosen.demo2.service.UserService;
 public class PersonController {
 	protected Logger log = LoggerFactory.getLogger(getClass());
 
-//	@Autowired
-//    private UserService userService;
+	@Autowired
+    private UserService userService;
 	
 //	@Autowired
 //    private UserMapper userMapper;
@@ -47,22 +47,37 @@ public class PersonController {
 //		String str = null;
 //		Assert.notNull(str, "str is not null.");
 		
-		String testStr = personService.insertest("哈哈");
-		log.info("testStr:"+testStr);
+//		String testStr = personService.insertest("哈哈");
+//		log.info("testStr:"+testStr);
+		
+		personService.updateLoginInfo(user);
 		
 		return user;
 	}
 	
 	//@PostMapping
-//	@RequestMapping(value = {"addUser"})
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public User addUser(@Validated @RequestBody User user) {
-//        String userId = userService.insert(user);
+	@RequestMapping(value = {"addUser"})
+    @ResponseStatus(HttpStatus.CREATED)
+    public User addUser(@Validated @RequestBody User user) {
+        String userId = userService.insert(user);
 //        if (userId != null) {
 //            return userService.selectByPk(userId);
 //        }
 //        return null;
-//    }
+        return user;
+    }
+	
+	@RequestMapping(value = {"updateUser"})
+    @ResponseStatus(HttpStatus.CREATED)
+    public User updateUser(@Validated @RequestBody User user) {
+		String userId = user.getId();
+        userService.updateByPk(userId, user);
+//        if (userId != null) {
+//            return userService.selectByPk(userId);
+//        }
+//        return null;
+        return user;
+    }
 
     //@GetMapping
 //	@RequestMapping(value = {"getList"})

@@ -1,7 +1,11 @@
 package com.goosen.demo2.dao;
 
 import tk.mybatis.mapper.common.Marker;
-import tk.mybatis.mapper.common.base.select.*;
+import tk.mybatis.mapper.common.base.select.ExistsWithPrimaryKeyMapper;
+import tk.mybatis.mapper.common.base.select.SelectAllMapper;
+import tk.mybatis.mapper.common.base.select.SelectByPrimaryKeyMapper;
+import tk.mybatis.mapper.common.base.select.SelectCountMapper;
+import tk.mybatis.mapper.common.base.select.SelectOneMapper;
 import tk.mybatis.mapper.common.condition.SelectByConditionMapper;
 import tk.mybatis.mapper.common.condition.SelectCountByConditionMapper;
 import tk.mybatis.mapper.common.example.SelectByExampleMapper;

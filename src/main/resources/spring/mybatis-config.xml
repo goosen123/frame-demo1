@@ -48,5 +48,29 @@
 	<!-- <plugins>
 		<plugin interceptor="com.thinkgem.jeesite.common.persistence.interceptor.PaginationInterceptor" />
     </plugins> -->
+    
+    
+    
+    
+    <!-- 配置通用 mapper -->  
+    <!--  
+              如果同时使用通用 mapper 和 PageHelper  
+              我们应该讲 PageHelper 插件配置在前面,否则不能正常启动  
+    -->  
+    <plugins>  
+  
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">  
+            <!-- 开挂设置分页合理化 -->  
+            <property name="reasonable" value="true"/>  
+        </plugin>  
+  
+	     <!-- <plugin interceptor="tk.mybatis.mapper.mapperhelper.MapperOnceInterceptor">  
+	            主键自增回写方法,默认值MYSQL,详细说明请看文档  
+	            <property name="IDENTITY" value="MYSQL"/>  
+	            通用Mapper接口，多个通用接口用逗号隔开  
+	            <property name="mappers" value="tk.mybatis.spring.mapper"/>  
+	     </plugin> -->  
+  
+    </plugins>  
 	
 </configuration>

@@ -30,7 +30,7 @@ import java.util.List;
  */
 public abstract class BaseMySqlCrudServiceImpl<E extends PO<PK>, PK> implements CrudService<E, PK> {
 
-	//@Autowired
+	@Autowired
 	protected CrudMapper<E> crudMapper;
 
 	protected Class<E> poType;
