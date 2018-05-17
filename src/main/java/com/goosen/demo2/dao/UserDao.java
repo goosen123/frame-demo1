@@ -1,5 +1,7 @@
 package com.goosen.demo2.dao;
 
+import java.util.List;
+
 import com.goosen.demo2.commons.annotations.MyBatisDao;
 import com.goosen.demo2.entity.User;
 
@@ -17,5 +19,7 @@ public interface UserDao{
 	 * @return
 	 */
 	public int updateLoginInfo(User user);
+	
+	public List<User> findAllUserList();
 
 }

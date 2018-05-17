@@ -1,5 +1,7 @@
 package com.goosen.demo2.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,11 @@ public class PersonServiceImpl implements PersonService{
 	@Override
 	public int updateLoginInfo(User user) {
 		return userDao.updateLoginInfo(user);
+	}
+
+	@Override
+	public List<User> findAllUserList() {
+		return userDao.findAllUserList();
 	}
 
 }

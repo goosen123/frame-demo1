@@ -2,6 +2,7 @@ package com.goosen.demo2.dao;
 
 import org.springframework.stereotype.Repository;
 
+import com.goosen.demo2.commons.annotations.MyBatisDao;
 import com.goosen.demo2.entity.User;
 
 /**
@@ -10,6 +11,6 @@ import com.goosen.demo2.entity.User;
  * @author zhumaer
  * @since 25/1/2018 22:39 PM
  */
-@Repository
+@MyBatisDao
 public interface UserMapper extends CrudMapper<User> {
 }
