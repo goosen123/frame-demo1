@@ -26,18 +26,19 @@
 	
 	<!-- 使用Annotation自动注册Bean，解决事物失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller注解。  -->
 	<!-- base-package 如果多个，用“,”分隔 -->
-	<context:component-scan base-package="com.goosen.demo2">
+	<!-- <context:component-scan base-package="com.goosen.demo2">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-		<!-- 不扫描@ControllerAdvice -->
+		不扫描@ControllerAdvice
 		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
-	</context:component-scan>    
+	</context:component-scan> -->    
 	
-    <!-- <context:component-scan base-package="com.goosen.demo2.*" /> -->  
+    <context:component-scan base-package="com.goosen.demo2.*" /> 
 	
 	<!-- 配置切面的类 -->
 	<!-- <bean id="serviceAspect" class="com.goosen.demo2.commons.aop.RestControllerAspect"/> --> 
 	<!-- 开启aop注解方式，此步骤不能少，这样java类中的aop注解才会生效 -->
     <!-- <aop:aspectj-autoproxy/> --> 
+    
     
     <!-- MyBatis begin -->
     <!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -49,13 +50,13 @@
 		<property name="configLocation" value="classpath:/spring/mybatis-config.xml"></property>
     </bean> -->
     <!-- MyBatis配置 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.goosen.demo2" />
 		<property name="mapperLocations" value="classpath:/mappings/**/*.xml"/>
 		<property name="configLocation" value="classpath:/spring/mybatis-config.xml" />
-		<!-- 已放在mybatis-config.xml中 -->
-		<!-- <property name="plugins">  
+		已放在mybatis-config.xml中
+		<property name="plugins">  
             <array>  
                 <bean class="com.github.abel533.mapperhelper.MapperInterceptor">  
                     <property name="properties">  
@@ -67,23 +68,44 @@
                     </property>  
                 </bean>  
             </array>  
-        </property>   -->
-	</bean>
+        </property>  
+	</bean> -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations">
+            <array>
+                <value>classpath:/mappings/**/*.xml</value>
+            </array>
+        </property>
+        <property name="typeAliasesPackage" value="com.goosen.demo2"/>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
+                    <property name="properties">
+                        <value>
+                            helperDialect=mysql
+                            reasonable=true
+                            supportMethodsArguments=true
+                            params=count=countSql
+                            autoRuntimeDialect=true
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+    </bean>
+	
 	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-         <property name="basePackage" value="com.isea533.mybatis.mapper" />
-         <property name="properties">
-             <value>
-                 mappers=tk.mybatis.mapper.common.Mapper
-             </value>
-         </property>
-     </bean>
+        <property name="basePackage" value="com.goosen.demo2.mapper"/>
+    </bean>
     
     <!-- 扫描basePackage下所有以@MyBatisDao注解的接口 -->
-    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <!-- <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
         <property name="basePackage" value="com.goosen.demo2"/>
         <property name="annotationClass" value="com.goosen.demo2.commons.annotations.MyBatisDao"/>
-    </bean>
+    </bean>  -->
     
     <!-- 定义事务 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

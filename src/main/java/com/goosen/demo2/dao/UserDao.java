@@ -10,7 +10,7 @@ import com.goosen.demo2.entity.User;
  * @author ThinkGem
  * @version 2014-05-16
  */
-@MyBatisDao
+//@MyBatisDao
 public interface UserDao{
 	
 	/**

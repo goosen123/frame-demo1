@@ -1,14 +1,23 @@
 package com.goosen.demo2.service;
 
-/**
- * @desc 通用服务类
- *
- * @author zhuamer
- * @since 10/18/2017 18:31 PM
- */
-public interface CrudService<E, PK> extends
-		InsertService<E, PK>,
-        UpdateService<E,PK>,
-        DeleteService<PK>,
-		SelectService<E, PK> {
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public interface CrudService<T> {
+	
+	T selectByKey(Object key);
+
+    int save(T entity);
+
+    int delete(Object key);
+
+    int updateAll(T entity);
+
+    int updateNotNull(T entity);
+
+    List<T> selectByExample(Object example);
+
+    //TODO 其他...
 }
