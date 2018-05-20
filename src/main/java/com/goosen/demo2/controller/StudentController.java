@@ -22,7 +22,7 @@ public class StudentController {
 	@RequestMapping(value = {"getStudent"})
 	public Student getStudent() {
 		log.info("进来的student的getStudent了");
-    	Student student = studentService.selectByKey("123456");
+    	Student student = null;//studentService.selectByKey("123456");
     	return student;
 	}
 	

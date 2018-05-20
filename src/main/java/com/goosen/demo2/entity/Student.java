@@ -9,8 +9,9 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.goosen.demo2.commons.model.po.BasePO;
 import com.goosen.demo2.commons.validator.CreateGroup;
+import com.goosen.demo2.dao.DataEntity;
 
-public class Student extends BasePO<String>{
+public class Student  extends DataEntity<Student> {//extends BasePO<String>
 	
 	private static final long serialVersionUID = -7491215402569546437L;
 	
