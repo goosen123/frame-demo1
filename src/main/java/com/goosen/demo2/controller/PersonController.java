@@ -41,7 +41,7 @@ public class PersonController {
 	
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = {"addUser1"})
-	public GoodsListRespData addUser1(@Validated @RequestBody User user) {//(CreateGroup.class)
+	public User addUser1(@Validated @RequestBody User user) {//(CreateGroup.class)
 		
 		log.info("进来addUser<<<<<<<<<<<<<<<<<<<<");
 		
@@ -60,24 +60,30 @@ public class PersonController {
 //		BaseAdd baseAdd = new BaseAdd();
 //		baseAdd.setId(user.getId());
 		
-		List<User> list = new ArrayList<User>();
-		User user1 = new User();
-		user1.setId("123");
-		user1.setNickname("hh");
-		list.add(user1);
-		User user2 = new User();
-		user2.setId("124");
-		user2.setNickname("hh2");
-		list.add(user2);
-		user.setList(list);
+//		List<User> list = new ArrayList<User>();
+//		User user1 = new User();
+//		user1.setId("123");
+//		user1.setNickname("hh");
+//		list.add(user1);
+//		User user2 = new User();
+//		user2.setId("124");
+//		user2.setNickname("hh2");
+//		list.add(user2);
+//		user.setList(list);
 		
-		GoodsListRespData resp = new GoodsListRespData();
-		//resp.setGoodsList(list);
-		resp.setHh("hh");
-		resp.setIh(10);
-		resp.setCreateDate(new Date());
+//		GoodsListRespData resp = new GoodsListRespData();
+//		//resp.setGoodsList(list);
+//		resp.setHh("hh");
+//		resp.setIh(10);
+//		resp.setCreateDate(new Date());
 		
-		return resp;
+		List<User> list = user.getList();
+		for (int i = 0; i < list.size(); i++) {
+			User user1 = list.get(i);
+			log.info("user.nickname:"+user1.getNickname());
+		}
+		
+		return user;
 	}
 	
 //	//成功的
