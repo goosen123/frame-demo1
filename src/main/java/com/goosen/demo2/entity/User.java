@@ -1,5 +1,7 @@
 package com.goosen.demo2.entity;
 
+import java.util.List;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,8 +37,16 @@ public class User extends BasePO<String>{
 	@NotBlank
 	private String status;
 
+	private List<User> list;
 	
-	
+	public List<User> getList() {
+		return list;
+	}
+
+	public void setList(List<User> list) {
+		this.list = list;
+	}
+
 	public String getId() {
 		return id;
 	}

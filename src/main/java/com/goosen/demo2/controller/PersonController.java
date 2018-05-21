@@ -1,5 +1,9 @@
 package com.goosen.demo2.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +19,13 @@ import com.github.pagehelper.PageHelper;
 import com.goosen.demo2.commons.annotations.ResponseResult;
 import com.goosen.demo2.commons.model.qo.PageQO;
 import com.goosen.demo2.commons.model.vo.PageVO;
+import com.goosen.demo2.commons.result.PlatformResult;
 import com.goosen.demo2.entity.User;
+import com.goosen.demo2.entity.response.BaseAdd;
+import com.goosen.demo2.entity.response.GoodsListRespData;
 import com.goosen.demo2.service.PersonService;
 import com.goosen.demo2.service.UserService;
+import com.mysql.fabric.xmlrpc.base.Array;
 
 @ResponseResult
 @RestController
@@ -30,28 +38,48 @@ public class PersonController {
 //	
 //	@Autowired
 //    private PersonService personService;
-//	
-//	@ResponseStatus(HttpStatus.CREATED)
-//	@RequestMapping(value = {"addUser1"})
-//	public User addUser1(@Validated @RequestBody User user) {//(CreateGroup.class)
-//		
-//		log.info("进来addUser<<<<<<<<<<<<<<<<<<<<");
-//		
-////		int i =2/0;
-//		
-////		String str = null;
-////		Assert.notNull(str, "str is not null.");
-//		
-////		String testStr = personService.insertest("哈哈");
-////		log.info("testStr:"+testStr);
-//		
+	
+	@ResponseStatus(HttpStatus.CREATED)
+	@RequestMapping(value = {"addUser1"})
+	public GoodsListRespData addUser1(@Validated @RequestBody User user) {//(CreateGroup.class)
+		
+		log.info("进来addUser<<<<<<<<<<<<<<<<<<<<");
+		
+//		int i =2/0;
+		
+//		String str = null;
+//		Assert.notNull(str, "str is not null.");
+		
+//		String testStr = personService.insertest("哈哈");
+//		log.info("testStr:"+testStr);
+		
 //		personService.updateLoginInfo(user);
-//		
-////		user = personService.selectByKey(user.getId());
-//		
-//		return user;
-//	}
-//	
+		
+//		user = personService.selectByKey(user.getId());
+		
+//		BaseAdd baseAdd = new BaseAdd();
+//		baseAdd.setId(user.getId());
+		
+		List<User> list = new ArrayList<User>();
+		User user1 = new User();
+		user1.setId("123");
+		user1.setNickname("hh");
+		list.add(user1);
+		User user2 = new User();
+		user2.setId("124");
+		user2.setNickname("hh2");
+		list.add(user2);
+		user.setList(list);
+		
+		GoodsListRespData resp = new GoodsListRespData();
+		//resp.setGoodsList(list);
+		resp.setHh("hh");
+		resp.setIh(10);
+		resp.setCreateDate(new Date());
+		
+		return resp;
+	}
+	
 //	//成功的
 //	@RequestMapping(value = {"getList1"})
 //    public PageVO<User> getList1(PageQO pageQO) {
