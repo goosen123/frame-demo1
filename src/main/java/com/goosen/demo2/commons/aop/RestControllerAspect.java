@@ -20,12 +20,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 
+
+
+
+
 import com.alibaba.fastjson.JSONObject;
 //import com.alibaba.fastjson.JSON;
 //import com.alibaba.fastjson.JSONObject;
 import com.goosen.demo2.commons.utils.IpUtil;
 import com.goosen.demo2.commons.utils.JsonUtil;
 import com.goosen.demo2.commons.constants.HeaderConstants;
+import com.goosen.demo2.commons.handler.GlobalExceptionHandler;
+import com.goosen.demo2.commons.helper.LoginTokenHelper;
+import com.goosen.demo2.commons.model.bo.LoginUser;
 //import com.frame.commons.web.handler.GlobalExceptionHandler;
 //import com.frame.user.model.bo.LoginUser;
 import com.google.common.collect.Lists;
@@ -56,19 +63,18 @@ public class RestControllerAspect {
 		MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 		Method method = signature.getMethod();
 
-//		boolean logFlag = this.needToLog(method);
-//		if (!logFlag) {
-//			return joinPoint.proceed();
-//		}
+		boolean logFlag = this.needToLog(method);
+		if (!logFlag) {
+			return joinPoint.proceed();
+		}
 
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-//		LoginUser loginUser = LoginTokenHelper.getLoginUserFromRequest();
-		Object loginUser = null;
+		LoginUser loginUser = LoginTokenHelper.getLoginUserFromRequest();
 		
 		String ip = IpUtil.getRealIp(request);
 		String methodName = this.getMethodName(joinPoint);
 		String params = this.getParamsJson(joinPoint);
-		String requester = "unknown";//loginUser == null ? "unknown" : String.valueOf(loginUser.getId());
+		String requester = loginUser == null ? "unknown" : String.valueOf(loginUser.getId());//String requester = "unknown";//
 
 		String callSource = request.getHeader(HeaderConstants.CALL_SOURCE);
 		String appVersion = request.getHeader(HeaderConstants.APP_VERSION);
@@ -112,14 +118,13 @@ public class RestControllerAspect {
 			}
 			sb.append(paramStr).append(",");
 		}
-		return sb.deleteCharAt(sb.length() - 1).toString();
+		return sb.deleteCharAt(sb.length() - 1).toString(); 
 	}
 
-//	private boolean needToLog(Method method) {
-//		//GET请求不记录日志
-//		return method.getAnnotation(GetMapping.class) == null
-//				&& !method.getDeclaringClass().equals(GlobalExceptionHandler.class);
-//	}
+	private boolean needToLog(Method method) {
+		//GET请求不记录日志
+		return !method.getDeclaringClass().equals(GlobalExceptionHandler.class);//method.getAnnotation(GetMapping.class) == null &&
+	}
 
 	/**
 	 * 删除参数中的敏感内容

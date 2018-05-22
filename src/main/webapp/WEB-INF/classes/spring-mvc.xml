@@ -29,7 +29,7 @@
 	
 	<!-- aop -->
 	<!-- 配置切面的类 -->
-	<bean id="serviceAspect" class="com.goosen.demo2.commons.aop.RestControllerAspect"/> 
+	<!-- <bean id="serviceAspect" class="com.goosen.demo2.commons.aop.RestControllerAspect"/>  -->
 	<!-- 开启aop注解方式，此步骤不能少，这样java类中的aop注解才会生效 -->
     <aop:aspectj-autoproxy/>  
     

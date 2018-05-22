@@ -7,7 +7,7 @@ import com.goosen.demo2.commons.utils.StringUtil;
 import com.goosen.demo2.commons.model.bo.LoginToken;
 import com.goosen.demo2.commons.model.bo.LoginUser;
 import com.goosen.demo2.commons.helper.LoginTokenHelper;
-import com.zm.zhuma.user.token.service.LoginTokenService;
+//import com.zm.zhuma.user.token.service.LoginTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -24,8 +24,8 @@ import java.lang.reflect.Method;
  */
 public class LoginAuthInterceptor implements HandlerInterceptor {
 
-	@Autowired
-	private LoginTokenService loginTokenCacheService;
+//	@Autowired
+//	private LoginTokenService loginTokenCacheService;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -49,13 +49,13 @@ public class LoginAuthInterceptor implements HandlerInterceptor {
 				}
 
 				//获取登录TOKEN信息
-				LoginToken loginToken = loginTokenCacheService.getById(loginTokenId);
-				if (loginToken == null) {
-					throw new BusinessException(ResultCode.USER_NOT_LOGGED_IN);
-				}
+//				LoginToken loginToken = loginTokenCacheService.getById(loginTokenId);
+//				if (loginToken == null) {
+//					throw new BusinessException(ResultCode.USER_NOT_LOGGED_IN);
+//				}
 
 				//登录TOKEN信息放入请求对象，方便后续controller中获取
-				LoginTokenHelper.addLoginTokenToRequest(loginToken);
+//				LoginTokenHelper.addLoginTokenToRequest(loginToken);
 				return true;
 			}
 		}
