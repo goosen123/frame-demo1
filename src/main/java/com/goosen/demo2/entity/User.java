@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.goosen.demo2.commons.annotations.EnumValue;
+import com.goosen.demo2.commons.annotations.MoneyValue;
 import com.goosen.demo2.commons.model.po.BasePO;
 import com.goosen.demo2.commons.validator.CreateGroup;
 
@@ -21,11 +23,12 @@ public class User extends BasePO<String>{
 	@Length(min=1, max=64)
 	private String id;
 
-	@NotBlank
+	@NotBlank(groups={CreateGroup.class})
 	@Length(min=1, max=64)
 	private String nickname;
 
 	@NotBlank
+	@EnumValue(enumClass=UserGenderEnum.class, enumMethod="isValidName")
 	private String gender;
 
 	@Length(max=256)
@@ -36,9 +39,41 @@ public class User extends BasePO<String>{
 
 	@NotBlank
 	private String status;
+	
+	@MoneyValue
+	private Double wallet;
 
 	private List<User> list;
 	
+	/**
+	 * 用户性别枚举
+	 */
+	public enum UserGenderEnum {
+		/**男*/
+		MALE,
+		/**女*/
+		FEMALE,
+		/**未知*/
+		UNKNOWN;
+
+		public static boolean isValidName(String name) {
+			for (UserGenderEnum userGenderEnum : UserGenderEnum.values()) {
+				if (userGenderEnum.name().equals(name)) {
+					return true;
+				}
+			}
+			return false;
+		}
+	}
+
+	public Double getWallet() {
+		return wallet;
+	}
+
+	public void setWallet(Double wallet) {
+		this.wallet = wallet;
+	}
+
 	public List<User> getList() {
 		return list;
 	}

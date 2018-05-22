@@ -54,6 +54,16 @@
              <mvc:mapping path="/**"/>
              <bean class="com.goosen.demo2.commons.interceptor.ResponseResultInterceptor"></bean>
          </mvc:interceptor>
+         <mvc:interceptor>
+             <!-- 拦截所有URL中包含/**的请求 -->
+             <mvc:mapping path="/**"/>
+             <bean class="com.goosen.demo2.commons.interceptor.HeaderParamsCheckInterceptor"></bean>
+         </mvc:interceptor>
+         <mvc:interceptor>
+             <!-- 拦截所有URL中包含/**的请求 -->
+             <mvc:mapping path="/**"/>
+             <bean class="com.goosen.demo2.commons.interceptor.LoginAuthInterceptor"></bean>
+         </mvc:interceptor>
      </mvc:interceptors>
      
     <!-- REST中根据URL后缀自动判定Content-Type及相应的View -->

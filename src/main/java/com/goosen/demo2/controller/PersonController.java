@@ -77,11 +77,11 @@ public class PersonController {
 //		resp.setIh(10);
 //		resp.setCreateDate(new Date());
 		
-		List<User> list = user.getList();
-		for (int i = 0; i < list.size(); i++) {
-			User user1 = list.get(i);
-			log.info("user.nickname:"+user1.getNickname());
-		}
+//		List<User> list = user.getList();
+//		for (int i = 0; i < list.size(); i++) {
+//			User user1 = list.get(i);
+//			log.info("user.nickname:"+user1.getNickname());
+//		}
 		
 		return user;
 	}
