@@ -24,11 +24,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 
+
 import com.alibaba.fastjson.JSONObject;
 //import com.alibaba.fastjson.JSON;
 //import com.alibaba.fastjson.JSONObject;
 import com.goosen.demo2.commons.utils.IpUtil;
 import com.goosen.demo2.commons.utils.JsonUtil;
+import com.goosen.demo2.commons.annotations.GetMapping;
 import com.goosen.demo2.commons.constants.HeaderConstants;
 import com.goosen.demo2.commons.handler.GlobalExceptionHandler;
 import com.goosen.demo2.commons.helper.LoginTokenHelper;
@@ -118,12 +120,16 @@ public class RestControllerAspect {
 			}
 			sb.append(paramStr).append(",");
 		}
-		return sb.deleteCharAt(sb.length() - 1).toString(); 
+		String str = "";
+		if(sb.length() > 0){
+			str = sb.deleteCharAt(sb.length() - 1).toString();
+		}
+		return str; 
 	}
 
 	private boolean needToLog(Method method) {
 		//GET请求不记录日志
-		return !method.getDeclaringClass().equals(GlobalExceptionHandler.class);//method.getAnnotation(GetMapping.class) == null &&
+		return method.getAnnotation(GetMapping.class) == null &&!method.getDeclaringClass().equals(GlobalExceptionHandler.class);//
 	}
 
 	/**

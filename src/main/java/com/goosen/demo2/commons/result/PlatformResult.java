@@ -23,7 +23,7 @@ public class PlatformResult implements Result {
 
 	private Integer code;
 
-	private String msg;
+	private String message;
 
 	private Object data;
 	
@@ -66,17 +66,22 @@ public class PlatformResult implements Result {
 	public static PlatformResult failure(String message) {
 		PlatformResult result = new PlatformResult();
 		result.setCode(ResultCode.PARAM_IS_INVALID.code());
-		result.setMsg(message);
+		result.setMessage(message);
 		return result;
 	}
 
 	private void setResultCode(ResultCode code) {
 		this.code = code.code();
-		this.msg = code.message();
+		this.message = code.message();
 	}
-	
-	
-	
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 	public Integer getCode() {
 		return code;
@@ -86,14 +91,7 @@ public class PlatformResult implements Result {
 		this.code = code;
 	}
 
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
+	
 	public Object getData() {
 		return data;
 	}

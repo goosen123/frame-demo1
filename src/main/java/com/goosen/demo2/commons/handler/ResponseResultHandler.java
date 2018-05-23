@@ -43,7 +43,7 @@ public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
 				DefaultErrorResult defaultErrorResult = (DefaultErrorResult) body;
 				PlatformResult platformResult = new PlatformResult();
 				platformResult.setCode(defaultErrorResult.getCode());
-				platformResult.setMsg(defaultErrorResult.getMessage());
+				platformResult.setMessage(defaultErrorResult.getMessage());
 				platformResult.setData(defaultErrorResult.getErrors());
 				return platformResult;
 //				return PlatformResult.builder()
