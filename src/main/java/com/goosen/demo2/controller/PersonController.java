@@ -38,8 +38,10 @@ import com.goosen.demo2.commons.model.vo.PageVO;
 import com.goosen.demo2.commons.utils.RequestContextUtil;
 import com.goosen.demo2.entity.User;
 import com.goosen.demo2.entity.response.BaseListRespData;
+import com.goosen.demo2.entity.response.BaseModelRespData;
 import com.goosen.demo2.entity.response.UserList;
 import com.goosen.demo2.entity.response.UserListRespData;
+import com.goosen.demo2.entity.response.UserModel;
 import com.goosen.demo2.service.PersonService;
 
 @RestController
@@ -306,6 +308,21 @@ public class PersonController {
     public BaseListRespData<UserList> getList4() {
 		BaseListRespData<UserList> baseListRespData = personService.findAllUserList2();
         return baseListRespData;
+    }
+	
+	@ResponseResult
+	@RequestMapping(value = {"getUser"})
+    public BaseModelRespData<UserModel> getUser() {
+		
+		BaseModelRespData<UserModel> baseModelRespData = new BaseModelRespData<UserModel>();
+		
+		UserModel user1 = new UserModel();
+//		user1.setGender("123");
+//		user1.setNickname("hh");
+		
+		baseModelRespData.setModel(user1);
+		
+        return baseModelRespData;
     }
 	
 ////	@RequestMapping(value = {"getList3"})
