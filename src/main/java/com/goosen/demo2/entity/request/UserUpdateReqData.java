@@ -1,5 +1,6 @@
 package com.goosen.demo2.entity.request;
 
-public class UserDelete {
+public class UserUpdateReqData {
 
+	
 }

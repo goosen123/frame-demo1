@@ -1,26 +1,21 @@
 package com.goosen.demo2.controller;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.dom4j.Document;
-import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,10 +28,15 @@ import com.goosen.demo2.commons.annotations.GetMapping;
 import com.goosen.demo2.commons.annotations.ResponseResult;
 import com.goosen.demo2.commons.enums.ResultCode;
 import com.goosen.demo2.commons.exception.BusinessException;
+import com.goosen.demo2.commons.model.ParameterInvalidItem;
 import com.goosen.demo2.commons.model.qo.PageQO;
 import com.goosen.demo2.commons.model.vo.PageVO;
+import com.goosen.demo2.commons.utils.CheckUtil;
 import com.goosen.demo2.commons.utils.RequestContextUtil;
 import com.goosen.demo2.entity.User;
+import com.goosen.demo2.entity.request.BaseDeleteReqData;
+import com.goosen.demo2.entity.request.UserCommitReqData;
+import com.goosen.demo2.entity.response.BaseCudRespData;
 import com.goosen.demo2.entity.response.BaseListRespData;
 import com.goosen.demo2.entity.response.BaseModelRespData;
 import com.goosen.demo2.entity.response.UserList;
@@ -101,6 +101,36 @@ public class PersonController {
 //		}
 		
 		return user;
+	}
+	
+	@ResponseResult
+	@ResponseStatus(HttpStatus.CREATED)
+	@RequestMapping(value = {"addUser2"})//,method=RequestMethod.POST
+	public BaseCudRespData<String> addUser2(@Validated @RequestBody UserCommitReqData user) {//(CreateGroup.class)
+		
+		log.info("进来addUser2<<<<<<<<<<<<<<<<<<<<");
+		
+		//参数校验
+//		CheckUtil.notNull(user, "user","不能空");
+//		CheckUtil.notEmpty(user.getActionType(),"actionType","不能空");
+		Assert.notNull(user.getActionType(), "str is not null.");
+		log.info("没有继续走了吧<<<<<<<<<<<<<<<<<<<<");
+		
+		BaseCudRespData<String> baseIdRespData = new BaseCudRespData<String>();
+		//baseIdRespData.setId("123456");
+		
+		return baseIdRespData;
+	}
+	
+	@ResponseResult
+	@RequestMapping(value = {"deleteUser1"})
+	public BaseCudRespData<String> deleteUser1(@Validated @RequestBody BaseDeleteReqData<String> id) {
+		
+		log.info("进来deleteUser1<<<<<<<<<<<<<<<<<<<<");
+		
+		BaseCudRespData<String> baseIdRespData = new BaseCudRespData<String>();
+		
+		return baseIdRespData;
 	}
 	
 	@ResponseResult
