@@ -34,10 +34,8 @@ public class User extends BasePO<String>{
 	@Length(max=256)
 	private String avatar;
 
-	@NotBlank
 	private String type;
 
-	@NotBlank
 	private String status;
 	
 	@MoneyValue

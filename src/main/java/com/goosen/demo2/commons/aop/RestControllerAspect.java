@@ -58,7 +58,7 @@ public class RestControllerAspect {
 	 * @return 切入点返回值
 	 * @throws Throwable 异常信息
 	 */
-	@Around("@within(org.springframework.web.bind.annotation.RestController) || @annotation(org.springframework.web.bind.annotation.RestController)")
+	@Around("@within(org.springframework.web.bind.annotation.RestController) || @annotation(org.springframework.web.bind.annotation.RestController) || @within(org.springframework.stereotype.Controller) || @annotation(org.springframework.stereotype.Controller)")
 	public Object apiLog(ProceedingJoinPoint joinPoint) throws Throwable {
 		log.info("<<<<<<<进入统一打印日志！");
 		
