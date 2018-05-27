@@ -13,30 +13,16 @@ public class StudentServiceImpl implements StudentService{
 
 	
 	private StudentDao studentDao;
-	
+
 	@Override
 	public Student get(String id) {
-		return null;
-	}
-
-	@Override
-	public Student get(Student entity) {
-		return null;
-	}
-
-	@Override
-	public List<Student> findList(Student entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Student> findAllList(Student entity) {
-		return null;
-	}
-
-	@Override
 	public int insert(Student entity) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -47,9 +33,9 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
-	public int delete(Student entity) {
+	public int delete(String id) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 	
-
 }
