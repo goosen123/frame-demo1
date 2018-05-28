@@ -17,7 +17,9 @@
 			avatar, 
 			type, 
 			status, 
-			wallet
+			wallet,
+			create_time,
+			update_time
 		) VALUES (
 			#{id}, 
 			#{nickname}, 
@@ -25,7 +27,9 @@
 			#{avatar}, 
 			#{type}, 
 			#{status}, 
-			#{wallet}
+			#{wallet},
+			#{createTime},
+			#{updateTime}
 		)
 	</insert>
 	
@@ -36,7 +40,8 @@
 			avatar = #{avatar}, 
 			type = #{type}, 
 			status = #{status}, 
-			wallet = #{wallet}
+			wallet = #{wallet},
+			update_time = #{updateTime}
 		WHERE id = #{id}
 	</update>
 	

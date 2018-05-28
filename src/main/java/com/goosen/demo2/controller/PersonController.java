@@ -3,6 +3,7 @@ package com.goosen.demo2.controller;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,11 +33,15 @@ import com.goosen.demo2.commons.exception.BusinessException;
 import com.goosen.demo2.commons.model.ParameterInvalidItem;
 import com.goosen.demo2.commons.model.qo.PageQO;
 import com.goosen.demo2.commons.model.vo.PageVO;
+import com.goosen.demo2.commons.utils.BeanUtil;
 import com.goosen.demo2.commons.utils.CheckUtil;
+import com.goosen.demo2.commons.utils.IdGenUtil;
 import com.goosen.demo2.commons.utils.RequestContextUtil;
 import com.goosen.demo2.entity.User;
 import com.goosen.demo2.entity.request.BaseDeleteReqData;
+import com.goosen.demo2.entity.request.UserAddReqData;
 import com.goosen.demo2.entity.request.UserCommitReqData;
+import com.goosen.demo2.entity.request.UserUpdateReqData;
 import com.goosen.demo2.entity.response.BaseCudRespData;
 import com.goosen.demo2.entity.response.BaseListRespData;
 import com.goosen.demo2.entity.response.BaseModelRespData;
@@ -43,14 +49,15 @@ import com.goosen.demo2.entity.response.UserList;
 import com.goosen.demo2.entity.response.UserListRespData;
 import com.goosen.demo2.entity.response.UserModel;
 import com.goosen.demo2.service.PersonService;
+import com.goosen.demo2.service.UserService;
 
 @RestController
 @RequestMapping(value="person")
 public class PersonController {
 	protected Logger log = LoggerFactory.getLogger(getClass());
 
-//	@Autowired
-//    private UserService userService;
+	@Autowired
+    private UserService userService;
 	
 	@Autowired
     private PersonService personService;
@@ -121,6 +128,97 @@ public class PersonController {
 		
 		return baseIdRespData;
 	}
+	
+	@ResponseResult
+	@ResponseStatus(HttpStatus.CREATED)
+	@RequestMapping(value = {"addUser3"})//,method=RequestMethod.POST
+	@Transactional(readOnly = false)
+	public BaseCudRespData<String> addUser3(@Validated @RequestBody User user) {//(CreateGroup.class)
+		
+		log.info("进来addUser3<<<<<<<<<<<<<<<<<<<<");
+		
+		user.setId(IdGenUtil.uuid());
+		userService.insert(user);
+		
+		BaseCudRespData<String> baseIdRespData = new BaseCudRespData<String>();
+		baseIdRespData.setId(user.getId());
+		
+		return baseIdRespData;
+	}
+	
+	@ResponseResult
+	@ResponseStatus(HttpStatus.CREATED)
+	@RequestMapping(value = {"addUser4"})//,method=RequestMethod.POST
+	@Transactional(readOnly = false)
+	public BaseCudRespData<String> addUser4(@Validated @RequestBody UserAddReqData userAddReqData) {
+		
+		log.info("进来addUser4<<<<<<<<<<<<<<<<<<<<");
+		
+		User user = new User();
+		user.setId(IdGenUtil.uuid());
+		BeanUtil.copyProperties(userAddReqData, user, "");
+		userService.insert(user);
+		
+		BaseCudRespData<String> baseIdRespData = new BaseCudRespData<String>();
+		baseIdRespData.setId(user.getId());
+		
+		return baseIdRespData;
+	}
+	
+	@ResponseResult
+	@RequestMapping(value = {"updateUser"})
+	@Transactional(readOnly = false)
+	public BaseCudRespData<String> updateUser(@Validated @RequestBody UserUpdateReqData userUpdateReqData) {
+		
+		log.info("进来updateUser<<<<<<<<<<<<<<<<<<<<");
+		
+		String id = userUpdateReqData.getId();
+		User user = userService.get(id);
+		CheckUtil.notNull(user, "id", "参数有误");
+		BeanUtil.copyProperties(userUpdateReqData, user, "");
+		user.setUpdateTime(new Date());
+		userService.update(user);
+		
+		BaseCudRespData<String> baseIdRespData = new BaseCudRespData<String>();
+		
+		return baseIdRespData;
+	}
+	
+	@ResponseResult
+	@GetMapping
+	@RequestMapping(value = {"getUser2"})
+	public BaseModelRespData<User> getUser2(String id) {
+		
+		log.info("进来getUser2<<<<<<<<<<<<<<<<<<<<");
+		log.info("接收的参数：id"+id);
+		
+		BaseModelRespData<User> baseModelRespData = new BaseModelRespData<User>();
+		User user = userService.get(id);
+		baseModelRespData.setModel(user);
+		
+		return baseModelRespData;
+	}
+	
+	//分页
+	@ResponseResult
+	@GetMapping
+	@RequestMapping(value = {"getUserList1"})
+    public PageVO<UserList> getUserList1(PageQO pageQO) {
+		Page<UserList> page = PageHelper.startPage(pageQO.getPageNum(), pageQO.getPageSize(), pageQO.getOrderBy());
+		userService.findAllUserList();
+        return PageVO.build(page);
+    }
+	
+	//不分页，全部
+	@ResponseResult
+	@GetMapping
+	@RequestMapping(value = {"getAllUserList1"})
+    public BaseListRespData<UserList> getAllUserList1() {
+		List<UserList> userList = userService.findAllUserList();
+		BaseListRespData<UserList> baseListRespData = new BaseListRespData<UserList>();
+		baseListRespData.setList(userList);
+        return baseListRespData;
+    }
 	
 	@ResponseResult
 	@RequestMapping(value = {"deleteUser1"})

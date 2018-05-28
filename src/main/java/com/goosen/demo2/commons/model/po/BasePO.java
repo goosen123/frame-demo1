@@ -17,14 +17,20 @@ public abstract class BasePO<PK> implements PO<PK> {
 
 //	@ApiModelProperty(value = "创建时间")
 	@Column(name = "create_time")
-	private Date createTime;
+	private Date createTime = new Date();
 
 //	@ApiModelProperty(value = "更新时间")
 	@Column(name = "update_time")
-	private Date updateTime;
+	private Date updateTime = new Date();
 
-	
-	
+//	public BasePO() {
+//		
+//	}
+//	
+//	public BasePO(Date createTime,Date updateTime) {
+//		this.createTime = createTime;
+//		this.updateTime = updateTime;
+//	}
 	
 	public Date getCreateTime() {
 		return createTime;
