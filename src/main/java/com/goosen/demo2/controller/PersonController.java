@@ -50,7 +50,10 @@ import com.goosen.demo2.entity.response.UserListRespData;
 import com.goosen.demo2.entity.response.UserModel;
 import com.goosen.demo2.service.PersonService;
 import com.goosen.demo2.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
+@Api(value = "用户管理", description = "用户管理")
 @RestController
 @RequestMapping(value="person")
 public class PersonController {
@@ -62,6 +65,7 @@ public class PersonController {
 	@Autowired
     private PersonService personService;
 	
+	@ApiOperation(value="添加用户",httpMethod = "POST")
 	@ResponseResult
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = {"addUser1"})//,method=RequestMethod.POST

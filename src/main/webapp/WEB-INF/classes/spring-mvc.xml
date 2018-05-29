@@ -88,10 +88,21 @@
 	<mvc:default-servlet-handler />
 	
 	<!-- 静态资源映射 -->
-    <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
+    <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/> 
 	
 	<!-- 定义无Controller的path<->view直接映射 -->
-	<mvc:view-controller path="/" view-name="redirect:${web.view.index}"/>
+	<mvc:view-controller path="/" view-name="redirect:${web.view.index}"/> 
 	
+	<!-- swagger start-->  
+    <!-- 启动注解 -->  
+    <!-- <mvc:annotation-driven /> -->  
+    <!-- 配置Swagger相关静态资源 -->  
+    <!-- <mvc:resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"/>  
+    <mvc:resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"/> --> 
+    <!-- 引用Swagger 默认配置 -->  
+    <bean class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration" id="swagger2Config"/>   
+    <!-- 添加Swagger2 扫描目录 -->  
+    <!-- <context:component-scan base-package="com.goosen.demo2.controller" ></context:component-scan> -->  
+    <!-- swagger end -->  
 	
 </beans>
