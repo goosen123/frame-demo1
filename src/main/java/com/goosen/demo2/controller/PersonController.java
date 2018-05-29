@@ -21,6 +21,7 @@ import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -50,6 +51,7 @@ import com.goosen.demo2.entity.response.UserListRespData;
 import com.goosen.demo2.entity.response.UserModel;
 import com.goosen.demo2.service.PersonService;
 import com.goosen.demo2.service.UserService;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -65,10 +67,10 @@ public class PersonController {
 	@Autowired
     private PersonService personService;
 	
-	@ApiOperation(value="添加用户",httpMethod = "POST")
+	@ApiOperation(value="添加用户")//,httpMethod = "POST"
 	@ResponseResult
 	@ResponseStatus(HttpStatus.CREATED)
-	@RequestMapping(value = {"addUser1"})//,method=RequestMethod.POST
+	@RequestMapping(value = {"addUser1"},method=RequestMethod.POST)//
 	public User addUser1(@Validated @RequestBody User user) {//(CreateGroup.class)
 		
 		log.info("进来addUser<<<<<<<<<<<<<<<<<<<<");
@@ -150,9 +152,10 @@ public class PersonController {
 		return baseIdRespData;
 	}
 	
+	@ApiOperation(value="添加用户4")
 	@ResponseResult
 	@ResponseStatus(HttpStatus.CREATED)
-	@RequestMapping(value = {"addUser4"})//,method=RequestMethod.POST
+	@RequestMapping(value = {"addUser4"},method=RequestMethod.POST)//
 	@Transactional(readOnly = false)
 	public BaseCudRespData<String> addUser4(@Validated @RequestBody UserAddReqData userAddReqData) {
 		
@@ -169,8 +172,9 @@ public class PersonController {
 		return baseIdRespData;
 	}
 	
+	@ApiOperation(value="修改用户")
 	@ResponseResult
-	@RequestMapping(value = {"updateUser"})
+	@RequestMapping(value = {"updateUser"},method=RequestMethod.POST)
 	@Transactional(readOnly = false)
 	public BaseCudRespData<String> updateUser(@Validated @RequestBody UserUpdateReqData userUpdateReqData) {
 		
@@ -188,9 +192,10 @@ public class PersonController {
 		return baseIdRespData;
 	}
 	
+	@ApiOperation(value="获取用户2")
 	@ResponseResult
 	@GetMapping
-	@RequestMapping(value = {"getUser2"})
+	@RequestMapping(value = {"getUser2"},method=RequestMethod.GET)
 	public BaseModelRespData<User> getUser2(String id) {
 		
 		log.info("进来getUser2<<<<<<<<<<<<<<<<<<<<");
@@ -204,19 +209,21 @@ public class PersonController {
 	}
 	
 	//分页
+	@ApiOperation(value="获取用户列表1")
 	@ResponseResult
 	@GetMapping
-	@RequestMapping(value = {"getUserList1"})
+	@RequestMapping(value = {"getUserList1"},method=RequestMethod.GET)
     public PageVO<UserList> getUserList1(PageQO pageQO) {
 		Page<UserList> page = PageHelper.startPage(pageQO.getPageNum(), pageQO.getPageSize(), pageQO.getOrderBy());
 		userService.findAllUserList();
         return PageVO.build(page);
     }
 	
+	@ApiOperation(value="获取全部用户列表1")
 	//不分页，全部
 	@ResponseResult
 	@GetMapping
-	@RequestMapping(value = {"getAllUserList1"})
+	@RequestMapping(value = {"getAllUserList1"},method=RequestMethod.GET)
     public BaseListRespData<UserList> getAllUserList1() {
 		List<UserList> userList = userService.findAllUserList();
 		BaseListRespData<UserList> baseListRespData = new BaseListRespData<UserList>();
