@@ -1,5 +1,8 @@
 package com.goosen.demo2.entity.request;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -7,6 +10,7 @@ import com.goosen.demo2.commons.annotations.EnumValue;
 import com.goosen.demo2.commons.annotations.MoneyValue;
 import com.goosen.demo2.commons.validator.CreateGroup;
 
+@ApiModel(value="用户提交实体")
 public class UserAddReqData extends BaseReqData{
 	
 	private static final long serialVersionUID = 3536431311056183802L;
@@ -15,6 +19,7 @@ public class UserAddReqData extends BaseReqData{
 //	@Length(min=1, max=64)
 //	private String id;
 
+	@ApiModelProperty(value="用户昵称",example="郭靖",required=true)
 	@NotBlank(groups={CreateGroup.class})
 	@Length(min=1, max=64)
 	private String nickname;

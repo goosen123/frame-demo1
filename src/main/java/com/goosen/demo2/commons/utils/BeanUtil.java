@@ -47,7 +47,10 @@ public class BeanUtil {
 							if (!Modifier.isPublic(writeMethod.getDeclaringClass().getModifiers())) {
 								writeMethod.setAccessible(true);
 							}
-							writeMethod.invoke(target, value);
+							//by Goosen   值不是null才赋值
+							if(value != null){
+								writeMethod.invoke(target, value);
+							}
 						} catch (Throwable ex) {
 							throw new FatalBeanException("Could not copy property '" + targetPd.getName() + "' from source to target", ex);
 						}

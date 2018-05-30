@@ -25,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import springfox.documentation.annotations.ApiIgnore;
+
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.goosen.demo2.commons.annotations.GetMapping;
@@ -54,8 +56,9 @@ import com.goosen.demo2.service.UserService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
-@Api(value = "用户管理", description = "用户管理")
+@Api(value="用户管理",description="用户管理")//value = "用户管理",tags={"用户管理"}
 @RestController
 @RequestMapping(value="person")
 public class PersonController {
@@ -154,7 +157,6 @@ public class PersonController {
 	
 	@ApiOperation(value="添加用户4")
 	@ResponseResult
-	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value = {"addUser4"},method=RequestMethod.POST)//
 	@Transactional(readOnly = false)
 	public BaseCudRespData<String> addUser4(@Validated @RequestBody UserAddReqData userAddReqData) {
@@ -174,7 +176,7 @@ public class PersonController {
 	
 	@ApiOperation(value="修改用户")
 	@ResponseResult
-	@RequestMapping(value = {"updateUser"},method=RequestMethod.POST)
+	@RequestMapping(value = {"updateUser"},method=RequestMethod.PUT)
 	@Transactional(readOnly = false)
 	public BaseCudRespData<String> updateUser(@Validated @RequestBody UserUpdateReqData userUpdateReqData) {
 		
@@ -196,7 +198,7 @@ public class PersonController {
 	@ResponseResult
 	@GetMapping
 	@RequestMapping(value = {"getUser2"},method=RequestMethod.GET)
-	public BaseModelRespData<User> getUser2(String id) {
+	public BaseModelRespData<User> getUser2(@ApiParam(name="id",value="用户id",required=true)String id) {
 		
 		log.info("进来getUser2<<<<<<<<<<<<<<<<<<<<");
 		log.info("接收的参数：id"+id);
@@ -219,8 +221,8 @@ public class PersonController {
         return PageVO.build(page);
     }
 	
-	@ApiOperation(value="获取全部用户列表1")
 	//不分页，全部
+	@ApiOperation(value="获取全部用户列表1")
 	@ResponseResult
 	@GetMapping
 	@RequestMapping(value = {"getAllUserList1"},method=RequestMethod.GET)
@@ -231,8 +233,9 @@ public class PersonController {
         return baseListRespData;
     }
 	
+	@ApiOperation(value="删除用户1")
 	@ResponseResult
-	@RequestMapping(value = {"deleteUser1"})
+	@RequestMapping(value = {"deleteUser1"},method=RequestMethod.DELETE)
 	public BaseCudRespData<String> deleteUser1(@Validated @RequestBody BaseDeleteReqData<String> id) {
 		
 		log.info("进来deleteUser1<<<<<<<<<<<<<<<<<<<<");
@@ -242,6 +245,7 @@ public class PersonController {
 		return baseIdRespData;
 	}
 	
+	@ApiIgnore()
 	@ResponseResult
 	@GetMapping
 	@ResponseStatus(HttpStatus.CREATED)

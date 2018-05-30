@@ -16,22 +16,22 @@ public class UserUpdateReqData extends BaseReqData{
 	@Length(min=1, max=64)
 	private String id;
 
-	@NotBlank(groups={CreateGroup.class})
-	@Length(min=1, max=64)
+//	@NotBlank(groups={CreateGroup.class})
+//	@Length(min=1, max=64)
 	private String nickname;
 
-	@NotBlank
-	@EnumValue(enumClass=UserGenderEnum.class, enumMethod="isValidName")
+//	@NotBlank
+//	@EnumValue(enumClass=UserGenderEnum.class, enumMethod="isValidName")
 	private String gender;
 
-	@Length(max=256)
+//	@Length(max=256)
 	private String avatar;
 
 	private String type;
 
 	private String status;
 	
-	@MoneyValue
+//	@MoneyValue
 	private Double wallet;
 
 	

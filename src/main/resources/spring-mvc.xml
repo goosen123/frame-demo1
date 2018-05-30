@@ -54,6 +54,11 @@
              <mvc:mapping path="/**"/>
              <bean class="com.goosen.demo2.commons.interceptor.ResponseResultInterceptor"></bean>
          </mvc:interceptor>
+         <mvc:interceptor>
+             <!-- 拦截所有URL中包含/**的请求 -->
+             <mvc:mapping path="/**"/>
+             <bean class="com.goosen.demo2.commons.interceptor.AllowCrossDomainInterceptor"></bean>
+         </mvc:interceptor>
          <!-- <mvc:interceptor>
              拦截所有URL中包含/**的请求
              <mvc:mapping path="/**"/>

@@ -1,5 +1,7 @@
 package com.goosen.demo2.commons.model.bo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -25,25 +27,25 @@ public class LoginUser implements Serializable{
 
 	private static final long serialVersionUID = -3675314128118074922L;
 
-//	@ApiModelProperty(value = "用户ID")
+	@ApiModelProperty(value = "用户ID")
 	private String id;
 
-//	@ApiModelProperty(value = "登陆账号")
+	@ApiModelProperty(value = "登陆账号")
 	private String nickname;
 
-//	@ApiModelProperty(value = "性别")
+	@ApiModelProperty(value = "性别")
 	private String gender;
 
-//	@ApiModelProperty(value = "头像")
+	@ApiModelProperty(value = "头像")
 	private String avatar;
 
-//	@ApiModelProperty(value = "类型")
+	@ApiModelProperty(value = "类型")
 	private String type;
 
-//	@ApiModelProperty(value = "最新登陆IP")
+	@ApiModelProperty(value = "最新登陆IP")
 	private String latestLoginIp;
 
-//	@ApiModelProperty(value = "最新登陆时间")
+	@ApiModelProperty(value = "最新登陆时间")
 	private Date latestLoginTime;
 
 	

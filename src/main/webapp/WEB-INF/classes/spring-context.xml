@@ -152,4 +152,6 @@
 	    <property name="filters" value="stat" /> 
 	</bean>
 	
+	<import resource="spring/spring-redis.xml" />
+	
 </beans>
