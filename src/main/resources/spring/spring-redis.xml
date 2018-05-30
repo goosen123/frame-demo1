@@ -7,18 +7,18 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
   <property name="numTestsPerEvictionRun" value="3"></property> 
   <property name="timeBetweenEvictionRunsMillis" value="60000"></property> -->
    
-  <property name="maxIdle" value="${redis.maxIdle}"></property> 
-  <property name="minEvictableIdleTimeMillis" value="${redis.minEvictableIdleTimeMillis}"></property> 
-  <property name="numTestsPerEvictionRun" value="${redis.numTestsPerEvictionRun}"></property> 
-  <property name="timeBetweenEvictionRunsMillis" value="${redis.timeBetweenEvictionRunsMillis}"></property>
+  <property name="maxIdle" value="6"></property> <!-- ${redis.maxIdle} -->
+  <property name="minEvictableIdleTimeMillis" value="300000"></property> <!-- ${redis.minEvictableIdleTimeMillis} -->
+  <property name="numTestsPerEvictionRun" value="3"></property> <!-- ${redis.numTestsPerEvictionRun} -->
+  <property name="timeBetweenEvictionRunsMillis" value="60000"></property><!-- ${redis.timeBetweenEvictionRunsMillis} -->
  </bean> 
  
  <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" destroy-method="destroy"> 
   <property name="poolConfig" ref="jedisPoolConfig"></property> 
-  <property name="hostName" value="${redis.hostName}"></property> 
-  <property name="port" value="${redis.port}"></property> 
-  <property name="timeout" value="${redis.timeout}"></property> 
-  <property name="usePool" value="${redis.usePool}"></property> 
+  <property name="hostName" value="localhost"></property> <!-- ${redis.hostName} -->
+  <property name="port" value="6379"></property> <!-- ${redis.port} -->
+  <property name="timeout" value="15000"></property> <!-- ${redis.timeout} -->
+  <property name="usePool" value="true"></property> <!-- ${redis.usePool} -->
  </bean> 
  
  <bean id="jedisTemplate" class="org.springframework.data.redis.core.RedisTemplate"> 

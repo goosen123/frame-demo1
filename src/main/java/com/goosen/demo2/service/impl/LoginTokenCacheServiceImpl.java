@@ -15,7 +15,7 @@ import org.springframework.util.Assert;
 
 //@Slf4j
 @Service
-public class LoginTokenServiceImpl implements LoginTokenService {
+public class LoginTokenCacheServiceImpl implements LoginTokenService {
 
 	private ValueOperations<String, LoginToken> loginTokenValueOps;
 
@@ -23,11 +23,11 @@ public class LoginTokenServiceImpl implements LoginTokenService {
 
 	private String loginTokenCacheKeyPrefix;
 	
-	public LoginTokenServiceImpl() {
+	public LoginTokenCacheServiceImpl() {
 		
 	}
 
-	public LoginTokenServiceImpl(RedisTemplate<String, LoginToken> loginTokenTemplate, String loginTokenCacheKeyPrefix) {
+	public LoginTokenCacheServiceImpl(RedisTemplate<String, LoginToken> loginTokenTemplate, String loginTokenCacheKeyPrefix) {
 		Assert.notNull(loginTokenTemplate, "loginTokenTemplate is not null.");
 		Assert.notNull(loginTokenCacheKeyPrefix, "loginTokenCacheKeyPrefix is not null.");
 
