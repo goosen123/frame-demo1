@@ -30,27 +30,28 @@ import springfox.documentation.annotations.ApiIgnore;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.goosen.demo2.commons.annotations.GetMapping;
+import com.goosen.demo2.commons.annotations.LoginAuth;
 import com.goosen.demo2.commons.annotations.ResponseResult;
 import com.goosen.demo2.commons.enums.ResultCode;
 import com.goosen.demo2.commons.exception.BusinessException;
 import com.goosen.demo2.commons.model.ParameterInvalidItem;
+import com.goosen.demo2.commons.model.User;
 import com.goosen.demo2.commons.model.qo.PageQO;
+import com.goosen.demo2.commons.model.request.BaseDeleteReqData;
+import com.goosen.demo2.commons.model.response.BaseCudRespData;
+import com.goosen.demo2.commons.model.response.BaseListRespData;
+import com.goosen.demo2.commons.model.response.BaseModelRespData;
 import com.goosen.demo2.commons.model.vo.PageVO;
 import com.goosen.demo2.commons.utils.BeanUtil;
 import com.goosen.demo2.commons.utils.CheckUtil;
 import com.goosen.demo2.commons.utils.IdGenUtil;
 import com.goosen.demo2.commons.utils.RequestContextUtil;
-import com.goosen.demo2.entity.User;
-import com.goosen.demo2.entity.request.BaseDeleteReqData;
-import com.goosen.demo2.entity.request.UserAddReqData;
-import com.goosen.demo2.entity.request.UserCommitReqData;
-import com.goosen.demo2.entity.request.UserUpdateReqData;
-import com.goosen.demo2.entity.response.BaseCudRespData;
-import com.goosen.demo2.entity.response.BaseListRespData;
-import com.goosen.demo2.entity.response.BaseModelRespData;
-import com.goosen.demo2.entity.response.UserList;
-import com.goosen.demo2.entity.response.UserListRespData;
-import com.goosen.demo2.entity.response.UserModel;
+import com.goosen.demo2.model.request.user.UserAddReqData;
+import com.goosen.demo2.model.request.user.UserCommitReqData;
+import com.goosen.demo2.model.request.user.UserUpdateReqData;
+import com.goosen.demo2.model.response.user.UserList;
+import com.goosen.demo2.model.response.user.UserListRespData;
+import com.goosen.demo2.model.response.user.UserModel;
 import com.goosen.demo2.service.PersonService;
 import com.goosen.demo2.service.UserService;
 
@@ -157,6 +158,7 @@ public class PersonController {
 	
 	@ApiOperation(value="添加用户4")
 	@ResponseResult
+	@LoginAuth
 	@RequestMapping(value = {"addUser4"},method=RequestMethod.POST)//
 	@Transactional(readOnly = false)
 	public BaseCudRespData<String> addUser4(@Validated @RequestBody UserAddReqData userAddReqData) {

@@ -1,6 +1,7 @@
 package com.goosen.demo2.service.impl;
 
 import com.goosen.demo2.commons.helper.PasswordHelper;
+import com.goosen.demo2.commons.model.User;
 import com.goosen.demo2.commons.model.qo.LoginQO;
 import com.goosen.demo2.commons.model.vo.LoginCredentialVO;
 import com.goosen.demo2.commons.model.vo.LoginVO;
@@ -19,8 +20,7 @@ import com.goosen.demo2.commons.constants.HeaderConstants;
 import com.goosen.demo2.commons.model.bo.LoginToken;
 import com.goosen.demo2.commons.model.bo.LoginUser;
 import com.goosen.demo2.commons.model.po.LoginCredential;
-import com.goosen.demo2.entity.User;
-import com.goosen.demo2.commons.helper.LoginTokenHelper;
+import com.goosen.demo2.helper.LoginTokenHelper;
 import com.goosen.demo2.service.LoginTokenService;
 
 import org.hibernate.validator.constraints.Length;
@@ -76,6 +76,10 @@ public class LoginServiceImpl implements LoginService {
 	    loginCredential2.setPwd(loginCredential2Pwd);
 	    loginCredential2.setType("CUSTOM");
 	    loginCredential2.setUserId("123456789");
+	    Long id = new Long(12345678);
+	    loginCredential2.setId(id);
+	    loginCredential2.setCreateTime(new Date());
+	    loginCredential2.setUpdateTime(new Date());
 	    List<LoginCredential> loginCredentialList = new ArrayList<LoginCredential>();
 	    loginCredentialList.add(loginCredential2);
 		

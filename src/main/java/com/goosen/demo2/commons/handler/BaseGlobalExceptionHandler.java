@@ -21,10 +21,9 @@ import javax.validation.ConstraintViolationException;
 import java.util.List;
 
 /**
- * @desc 全局异常处理基础类
- * 
- * @author zhumaer
- * @since 10/10/2017 9:54 AM
+ * 全局异常处理基础类
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 //@Slf4j
 public class BaseGlobalExceptionHandler {

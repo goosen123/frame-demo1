@@ -5,6 +5,11 @@ import com.goosen.demo2.commons.model.Model;
 
 import java.util.Date;
 
+/**
+ * 抽象实体的共同字段
+ * @author Goosen
+ * 2018-05-31 pm
+ */
 public interface PO<PK> extends Model {
 
 	PK getId();

@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @desc API 统一返回状态码
- * 
- * @author zhumaer
- * @since 8/31/2017 3:00 PM
+ * API 统一返回状态码
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 public enum ResultCode {
 

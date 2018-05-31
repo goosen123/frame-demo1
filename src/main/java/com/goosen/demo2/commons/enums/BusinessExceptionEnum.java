@@ -1,13 +1,20 @@
 package com.goosen.demo2.commons.enums;
 
-import com.goosen.demo2.commons.exception.*;
 import org.springframework.http.HttpStatus;
 
+import com.goosen.demo2.commons.exception.BusinessException;
+import com.goosen.demo2.commons.exception.DataConflictException;
+import com.goosen.demo2.commons.exception.DataNotFoundException;
+import com.goosen.demo2.commons.exception.InternalServerException;
+import com.goosen.demo2.commons.exception.ParameterInvalidException;
+import com.goosen.demo2.commons.exception.PermissionForbiddenException;
+import com.goosen.demo2.commons.exception.RemoteAccessException;
+import com.goosen.demo2.commons.exception.UserNotLoginException;
+
 /**
- * @desc 异常、HTTP状态码、默认自定义返回码 映射类
- *
- * @author zhumaer
- * @since 9/21/2017 14:11 PM
+ * 异常、HTTP状态码、默认自定义返回码 映射类
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 public enum BusinessExceptionEnum {
 

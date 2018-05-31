@@ -1,10 +1,9 @@
 package com.goosen.demo2.commons.constants;
 
 /**
- * @desc Header的key罗列
- * 
- * @author zhumaer
- * @since 8/31/2017 3:00 PM
+ * Header的key罗列
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 public class HeaderConstants {
 

@@ -17,7 +17,7 @@ import java.util.List;
  * @author zhumaer
  * @since 3/3/2018 22:39 PM
  */
-@ApiModel("登录QO")
+@ApiModel(value="登录QO")
 //@Data
 //@Builder
 //@NoArgsConstructor

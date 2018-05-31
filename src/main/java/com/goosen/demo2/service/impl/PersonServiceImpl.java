@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.goosen.demo2.commons.dao.UserDao;
+import com.goosen.demo2.commons.model.User;
 import com.goosen.demo2.commons.model.qo.PageQO;
+import com.goosen.demo2.commons.model.response.BaseListRespData;
 import com.goosen.demo2.commons.model.vo.PageVO;
-import com.goosen.demo2.dao.UserDao;
-import com.goosen.demo2.entity.User;
-import com.goosen.demo2.entity.response.BaseListRespData;
-import com.goosen.demo2.entity.response.UserList;
+import com.goosen.demo2.model.response.user.UserList;
 import com.goosen.demo2.service.PersonService;
 
 @Service

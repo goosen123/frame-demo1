@@ -3,10 +3,9 @@ package com.goosen.demo2.commons.annotations;
 import java.lang.annotation.*;
 
 /**
- * @desc 标识get请求注解
- * 
+ * 标识get请求注解，不用统一打印日志
  * @author Goosen
- * @since 10/17/2018 3:13 PM
+ * @since 2018-05-31 pm
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

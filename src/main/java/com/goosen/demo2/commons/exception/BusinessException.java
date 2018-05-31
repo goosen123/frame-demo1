@@ -1,14 +1,13 @@
 package com.goosen.demo2.commons.exception;
 
-import com.goosen.demo2.commons.enums.ResultCode;
 import com.goosen.demo2.commons.enums.BusinessExceptionEnum;
+import com.goosen.demo2.commons.enums.ResultCode;
 import com.goosen.demo2.commons.utils.StringUtil;
 
 /**
- * @desc 业务异常类
- * 
- * @author zhumaer
- * @since 9/18/2017 3:00 PM
+ * 业务异常类
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 public class BusinessException extends RuntimeException {
 

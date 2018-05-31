@@ -4,10 +4,9 @@ import com.goosen.demo2.commons.exception.*;
 import org.springframework.http.HttpStatus;
 
 /**
- * @desc 异常、HTTP状态码、默认自定义返回码 映射类
- *
- * @author zhumaer
- * @since 9/21/2017 14:11 PM
+ * 异常、HTTP状态码、默认自定义返回码 映射类
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 public enum ExceptionEnum {
 

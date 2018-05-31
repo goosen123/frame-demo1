@@ -1,8 +1,6 @@
 package com.goosen.demo2.service;
 
 
-import org.springframework.stereotype.Service;
-
 import com.goosen.demo2.commons.model.bo.LoginToken;
 
 /**
@@ -11,7 +9,6 @@ import com.goosen.demo2.commons.model.bo.LoginToken;
  * @author zhumaer
  * @since 6/20/2017 3:00 PM
  */
-@Service
 public interface LoginTokenService {
 
 	/**

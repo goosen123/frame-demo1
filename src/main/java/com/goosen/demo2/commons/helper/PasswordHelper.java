@@ -6,10 +6,9 @@ import org.apache.commons.codec.digest.DigestUtils;
 import java.util.UUID;
 
 /**
- * @desc 密码辅助类
- *
- * @author zhumaer
- * @since 6/23/2017 18:31 PM
+ * 密码辅助类
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 public class PasswordHelper {
 

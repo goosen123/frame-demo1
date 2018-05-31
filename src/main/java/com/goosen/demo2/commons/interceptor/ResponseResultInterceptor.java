@@ -12,10 +12,9 @@ import java.lang.reflect.Method;
 
 
 /**
- * @desc 接口响应体控制拦截器
- * 
- * @author zhumaer
- * @since 4/1/2018 3:00 PM
+ * 接口响应体控制拦截器
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 @Component
 public class ResponseResultInterceptor implements HandlerInterceptor {

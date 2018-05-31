@@ -3,12 +3,12 @@ package com.goosen.demo2.config.bean;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zm.zhuma.commons.enums.CacheKeyEnum;
-import com.zm.zhuma.user.model.bo.LoginToken;
-import com.zm.zhuma.user.token.service.LoginTokenService;
-import com.zm.zhuma.user.token.service.impl.LoginTokenCacheServiceImpl;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import com.goosen.demo2.commons.enums.CacheKeyEnum;
+import com.goosen.demo2.commons.model.bo.LoginToken;
+import com.goosen.demo2.service.LoginTokenService;
+import com.goosen.demo2.service.impl.LoginTokenCacheServiceImpl;
+//import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+//import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -17,11 +17,11 @@ import org.springframework.data.redis.serializer.GenericToStringSerializer;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 @Configuration
-@ConditionalOnClass(value = { LoginTokenCacheServiceImpl.class, RedisTemplate.class })
+//@ConditionalOnClass(value = { LoginTokenCacheServiceImpl.class, RedisTemplate.class })
 public class TokenBeanConfig {
 
     @Bean
-    @ConditionalOnMissingBean(name = "loginTokenService")
+    //@ConditionalOnMissingBean(name = "loginTokenService")
     public LoginTokenService loginTokenService(RedisTemplate<String, LoginToken> loginTokenRedisTemplate) {
         return new LoginTokenCacheServiceImpl(loginTokenRedisTemplate, CacheKeyEnum.VALUE_LOGIN_TOKENS.code());
     }

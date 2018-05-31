@@ -16,10 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolationException;
 
 /**
- * @desc 统一异常处理器
- * 
- * @author zhumaer
- * @since 8/31/2017 3:00 PM
+ * 统一异常处理器
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 @RestController
 @ControllerAdvice

@@ -4,10 +4,9 @@ package com.goosen.demo2.commons.annotations;
 import java.lang.annotation.*;
 
 /**
- * @desc 别名注解 用来为类的字段添加别名（备注：可重复注解，也可以为一个别名指定多个源类）
- * 
- * @author zhumaer
- * @since 7/6/2017 3:13 PM
+ * 别名注解 用来为类的字段添加别名（备注：可重复注解，也可以为一个别名指定多个源类）
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

@@ -4,10 +4,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.util.Assert;
 
 /**
- * @desc 环境常量枚举
+ * 环境常量枚举
  *
- * @author zhumaer
- * @since 8/31/2017 3:00 PM
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 public enum EnvironmentEnum {
 	/**

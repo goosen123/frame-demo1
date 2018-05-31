@@ -16,10 +16,9 @@ import com.goosen.demo2.commons.result.Result;
 import com.goosen.demo2.commons.utils.RequestContextUtil;
 
 /**
- * @desc 接口响应体处理器
- * 
- * @author zhumaer
- * @since 4/1/2018 3:00 PM
+ * 接口响应体处理器
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 @ControllerAdvice
 public class ResponseResultHandler implements ResponseBodyAdvice<Object> {

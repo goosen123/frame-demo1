@@ -2,11 +2,11 @@ package com.goosen.demo2.service;
 
 import java.util.List;
 
+import com.goosen.demo2.commons.model.User;
 import com.goosen.demo2.commons.model.qo.PageQO;
+import com.goosen.demo2.commons.model.response.BaseListRespData;
 import com.goosen.demo2.commons.model.vo.PageVO;
-import com.goosen.demo2.entity.User;
-import com.goosen.demo2.entity.response.BaseListRespData;
-import com.goosen.demo2.entity.response.UserList;
+import com.goosen.demo2.model.response.user.UserList;
 
 public interface PersonService{
 	String insertest(String testStr);

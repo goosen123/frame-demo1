@@ -3,10 +3,9 @@ package com.goosen.demo2.commons.annotations;
 import java.lang.annotation.*;
 
 /**
- * @desc 已登录权限验证注解
- * 
- * @author zhumaer
- * @since 10/17/2017 3:13 PM
+ * 已登录权限验证注解
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

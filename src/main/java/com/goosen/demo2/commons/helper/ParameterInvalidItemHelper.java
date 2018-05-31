@@ -11,10 +11,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @desc 参数无效项辅助器
- *
- * @author zhumaer
- * @since 9/29/2017 3:00 PM
+ * 参数无效项辅助器
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 public class ParameterInvalidItemHelper {
 

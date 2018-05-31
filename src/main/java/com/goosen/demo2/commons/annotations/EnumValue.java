@@ -1,11 +1,5 @@
 package com.goosen.demo2.commons.annotations;
 
-import com.goosen.demo2.commons.utils.StringUtil;
-
-import javax.validation.Constraint;
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
-import javax.validation.Payload;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -13,11 +7,17 @@ import java.lang.annotation.Target;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import javax.validation.Constraint;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+import javax.validation.Payload;
+
+import com.goosen.demo2.commons.utils.StringUtil;
+
 /**
- * @desc 校验枚举值有效性
- * 
- * @author zhumaer
- * @since 10/17/2017 3:13 PM
+ * 校验枚举值有效性 
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)

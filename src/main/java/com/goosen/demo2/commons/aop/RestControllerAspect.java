@@ -18,34 +18,25 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-
-
-
-
-
-
-
 import com.alibaba.fastjson.JSONObject;
+//import com.frame.commons.web.handler.GlobalExceptionHandler;
+//import com.frame.user.model.bo.LoginUser;
+import com.google.common.collect.Lists;
+import com.goosen.demo2.commons.annotations.GetMapping;
+import com.goosen.demo2.commons.constants.HeaderConstants;
+import com.goosen.demo2.commons.handler.GlobalExceptionHandler;
+import com.goosen.demo2.commons.model.bo.LoginUser;
 //import com.alibaba.fastjson.JSON;
 //import com.alibaba.fastjson.JSONObject;
 import com.goosen.demo2.commons.utils.IpUtil;
 import com.goosen.demo2.commons.utils.JsonUtil;
-import com.goosen.demo2.commons.annotations.GetMapping;
-import com.goosen.demo2.commons.constants.HeaderConstants;
-import com.goosen.demo2.commons.handler.GlobalExceptionHandler;
-import com.goosen.demo2.commons.helper.LoginTokenHelper;
-import com.goosen.demo2.commons.model.bo.LoginUser;
-//import com.frame.commons.web.handler.GlobalExceptionHandler;
-//import com.frame.user.model.bo.LoginUser;
-import com.google.common.collect.Lists;
+import com.goosen.demo2.helper.LoginTokenHelper;
 
 /**
- * @desc 请求参数、响应体统一日志打印
- * 
- * @author zhumaer
- * @since 10/10/2017 9:54 AM
+ * 请求参数、响应体统一日志打印
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
-//@Slf4j
 @Aspect
 @Component
 public class RestControllerAspect {

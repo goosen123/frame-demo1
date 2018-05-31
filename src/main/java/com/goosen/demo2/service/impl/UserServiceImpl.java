@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.goosen.demo2.dao.UserDao;
-import com.goosen.demo2.entity.User;
-import com.goosen.demo2.entity.response.UserList;
+import com.goosen.demo2.commons.dao.UserDao;
+import com.goosen.demo2.commons.model.User;
+import com.goosen.demo2.model.response.user.UserList;
 import com.goosen.demo2.service.UserService;
 
 @Service

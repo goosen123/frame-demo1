@@ -57,17 +57,17 @@
          <mvc:interceptor>
              <!-- 拦截所有URL中包含/**的请求 -->
              <mvc:mapping path="/**"/>
-             <bean class="com.goosen.demo2.commons.interceptor.AllowCrossDomainInterceptor"></bean>
+             <bean class="com.goosen.demo2.interceptor.AllowCrossDomainInterceptor"></bean>
          </mvc:interceptor>
-         <!-- <mvc:interceptor>
-             拦截所有URL中包含/**的请求
-             <mvc:mapping path="/**"/>
-             <bean class="com.goosen.demo2.commons.interceptor.HeaderParamsCheckInterceptor"></bean>
-         </mvc:interceptor> -->
          <mvc:interceptor>
              <!-- 拦截所有URL中包含/**的请求 -->
              <mvc:mapping path="/**"/>
-             <bean class="com.goosen.demo2.commons.interceptor.LoginAuthInterceptor"></bean>
+             <bean class="com.goosen.demo2.interceptor.HeaderParamsCheckInterceptor"></bean>
+         </mvc:interceptor>
+         <mvc:interceptor>
+             <!-- 拦截所有URL中包含/**的请求 -->
+             <mvc:mapping path="/**"/>
+             <bean class="com.goosen.demo2.interceptor.LoginAuthInterceptor"></bean>
          </mvc:interceptor>
      </mvc:interceptors>
      

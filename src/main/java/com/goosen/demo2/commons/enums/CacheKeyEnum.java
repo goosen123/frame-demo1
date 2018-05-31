@@ -5,13 +5,13 @@ import com.goosen.demo2.commons.utils.StringUtil;
 /**
  * 统一定义缓存KEY
  * 备注： ①枚举name应遵守以VALUE、LIST、SET、ZSET、HASH等开头
- *      ②枚举code应尽量简写形式，以工程主名字为开头，例如：zhuma、zhumm_push
+ *      ②枚举code应尽量简写形式，以工程主名字为开头，例如：goosen、goosen_push
  *      ③ `:` 冒号分割的前后应该是一个名词词性，冒号前后是有上下级关系的，多个单词解释一个名词时，约定使用 `_`下划线分割
  * 
- * 举例： ①ZHUMA的用户缓存 zhuma:user:{userId}
- *      ②ZHUMA的某用户地址信息缓存 zhuma:user_address
+ * 举例： ①GOOSEN的用户缓存 goosen:user:{userId}
+ *      ②GOOSEN的某用户地址信息缓存 goosen:user_address
  * 
- * Created by zhumaer on 17/5/24.
+ * Created by Goosen on 2018-05-31 pm
  */
 public enum CacheKeyEnum {
 
@@ -19,12 +19,12 @@ public enum CacheKeyEnum {
 	/**
 	 * 登录TOKEN缓存key
 	 */
-	VALUE_LOGIN_TOKENS("zhuma:login_tokens:", TimeEnum.ONE_WEEK.sec()),
+	VALUE_LOGIN_TOKENS("goosen:login_tokens:", TimeEnum.ONE_WEEK.sec()),
 
 	/**
 	 * 用户缓存
 	 */
-	VALUE_USERS("zhuma:user:profile:%s", TimeEnum.ONE_WEEK.sec());
+	VALUE_USERS("goosen:user:profile:%s", TimeEnum.ONE_WEEK.sec());
 
 	/**
 	 * 缓存key

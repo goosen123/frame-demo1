@@ -31,7 +31,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration  
 @EnableSwagger2  
 @EnableWebMvc
-//@ComponentScan(basePackages = "com.goosen.demo2.controller")  
+@ComponentScan(basePackages = "com.goosen.demo2")  
 public class SwaggerConfig extends WebMvcConfigurationSupport {  
 	
 	@Bean

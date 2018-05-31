@@ -13,10 +13,9 @@ import java.util.Date;
 //import lombok.NoArgsConstructor;
 
 /**
- * @desc 登录的用户
- *
- * @author zhumaer
- * @since 6/20/2017 3:00 PM
+ * 登录的用户
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 //@Data
 //@EqualsAndHashCode(callSuper = false)

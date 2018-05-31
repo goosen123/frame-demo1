@@ -4,8 +4,9 @@ import java.util.concurrent.TimeUnit;
 
 import com.goosen.demo2.commons.enums.CacheKeyEnum;
 import com.goosen.demo2.commons.model.bo.LoginToken;
-import com.goosen.demo2.commons.helper.LoginTokenHelper;
+import com.goosen.demo2.helper.LoginTokenHelper;
 import com.goosen.demo2.service.LoginTokenService;
+
 
 //import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;

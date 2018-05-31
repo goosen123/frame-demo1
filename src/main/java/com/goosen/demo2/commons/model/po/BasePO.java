@@ -3,14 +3,14 @@ package com.goosen.demo2.commons.model.po;
 //import io.swagger.annotations.ApiModelProperty;
 //import lombok.Data;
 
-import javax.persistence.Column;
 import java.util.Date;
 
-/**
- * @desc 基础PO类
+import javax.persistence.Column;
 
- * @author zhuamer
- * @since 7/3/2017 2:14 PM
+/**
+ * 基础PO类
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 //@Data
 public abstract class BasePO<PK> implements PO<PK> {

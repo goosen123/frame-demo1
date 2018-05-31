@@ -1,10 +1,9 @@
 package com.goosen.demo2.commons.exception;
 
 /**
- * @desc 内部服务异常
- * 
- * @author zhumaer
- * @since 9/18/2017 3:00 PM
+ * 内部服务异常
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 public class InternalServerException extends BusinessException {
 

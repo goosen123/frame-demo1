@@ -16,10 +16,9 @@ import com.goosen.demo2.commons.model.po.LoginCredential;
 //import lombok.NoArgsConstructor;
 
 /**
- * @desc 登录的TOKEN
- *
- * @author zhumaer
- * @since 6/20/2017 3:00 PM
+ * 登录的TOKEN
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 @ApiModel("登录的TOKEN")
 //@Data

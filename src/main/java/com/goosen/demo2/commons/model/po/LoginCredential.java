@@ -21,10 +21,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * @desc 登录凭证
-
- * @author zhumaer
- * @since 6/15/2017 2:48 PM
+ * 登录凭证
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 @ApiModel("登录凭证PO")
 //@Data

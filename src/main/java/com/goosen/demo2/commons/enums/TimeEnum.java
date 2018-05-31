@@ -1,10 +1,9 @@
 package com.goosen.demo2.commons.enums;
 
 /**
- * @desc 常用时间枚举类
- * 
- * @author zhumaer
- * @since 8/31/2017 3:00 PM
+ * 常用时间枚举类
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 public enum TimeEnum {
 

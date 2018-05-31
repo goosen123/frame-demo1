@@ -4,10 +4,9 @@ package com.goosen.demo2.commons.exception;
 import com.goosen.demo2.commons.enums.ResultCode;
 
 /**
- * @desc 参数无效异常
- * 
- * @author zhumaer
- * @since 9/18/2017 3:00 PM
+ * 参数无效异常
+ * @author Goosen
+ * @since 2018-05-31 pm
  */
 public class ParameterInvalidException extends BusinessException {
 
