@@ -3,8 +3,8 @@ package com.goosen.demo2.commons.dao;
 import java.util.List;
 
 import com.goosen.demo2.commons.annotations.MyBatisDao;
-import com.goosen.demo2.commons.model.User;
-import com.goosen.demo2.model.response.user.UserList;
+import com.goosen.demo2.commons.model.po.user.User;
+import com.goosen.demo2.commons.model.response.user.UserList1;
 
 
 /**
@@ -17,6 +17,6 @@ public interface UserDao extends CrudDao<User>{
 	
 	public int updateLoginInfo(User user);
 	
-	public List<UserList> findAllUserList();
+	public List<UserList1> findAllUserList();
 
 }

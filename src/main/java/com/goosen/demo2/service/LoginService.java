@@ -1,7 +1,7 @@
 package com.goosen.demo2.service;
 
-import com.goosen.demo2.commons.model.qo.LoginQO;
-import com.goosen.demo2.commons.model.vo.LoginVO;
+import com.goosen.demo2.commons.model.request.login.LoginQO;
+import com.goosen.demo2.commons.model.response.login.LoginVO;
 
 /**
  * @desc 登录服务

@@ -2,10 +2,13 @@ package com.goosen.demo2.controller;
 
 import com.goosen.demo2.commons.annotations.LoginAuth;
 import com.goosen.demo2.commons.annotations.ResponseResult;
-import com.goosen.demo2.commons.model.bo.LoginUser;
+import com.goosen.demo2.commons.model.po.login.LoginUser;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
 import org.springframework.web.bind.annotation.*;
+
 import springfox.documentation.annotations.ApiIgnore;
 
 /**

@@ -34,24 +34,24 @@ import com.goosen.demo2.commons.annotations.LoginAuth;
 import com.goosen.demo2.commons.annotations.ResponseResult;
 import com.goosen.demo2.commons.enums.ResultCode;
 import com.goosen.demo2.commons.exception.BusinessException;
-import com.goosen.demo2.commons.model.ParameterInvalidItem;
-import com.goosen.demo2.commons.model.User;
-import com.goosen.demo2.commons.model.qo.PageQO;
+import com.goosen.demo2.commons.model.commons.ParameterInvalidItem;
+import com.goosen.demo2.commons.model.po.user.User;
 import com.goosen.demo2.commons.model.request.BaseDeleteReqData;
+import com.goosen.demo2.commons.model.request.BasePageReqData;
+import com.goosen.demo2.commons.model.request.user.UserAddReqData;
+import com.goosen.demo2.commons.model.request.user.UserCommitReqData;
+import com.goosen.demo2.commons.model.request.user.UserUpdateReqData;
 import com.goosen.demo2.commons.model.response.BaseCudRespData;
 import com.goosen.demo2.commons.model.response.BaseListRespData;
 import com.goosen.demo2.commons.model.response.BaseModelRespData;
-import com.goosen.demo2.commons.model.vo.PageVO;
+import com.goosen.demo2.commons.model.response.BasePageRespData;
+import com.goosen.demo2.commons.model.response.user.UserList1;
+import com.goosen.demo2.commons.model.response.user.UserListRespData;
+import com.goosen.demo2.commons.model.response.user.UserModel1;
 import com.goosen.demo2.commons.utils.BeanUtil;
 import com.goosen.demo2.commons.utils.CheckUtil;
 import com.goosen.demo2.commons.utils.IdGenUtil;
 import com.goosen.demo2.commons.utils.RequestContextUtil;
-import com.goosen.demo2.model.request.user.UserAddReqData;
-import com.goosen.demo2.model.request.user.UserCommitReqData;
-import com.goosen.demo2.model.request.user.UserUpdateReqData;
-import com.goosen.demo2.model.response.user.UserList;
-import com.goosen.demo2.model.response.user.UserListRespData;
-import com.goosen.demo2.model.response.user.UserModel;
 import com.goosen.demo2.service.PersonService;
 import com.goosen.demo2.service.UserService;
 
@@ -217,10 +217,10 @@ public class PersonController {
 	@ResponseResult
 	@GetMapping
 	@RequestMapping(value = {"getUserList1"},method=RequestMethod.GET)
-    public PageVO<UserList> getUserList1(PageQO pageQO) {
-		Page<UserList> page = PageHelper.startPage(pageQO.getPageNum(), pageQO.getPageSize(), pageQO.getOrderBy());
+    public BasePageRespData<UserList1> getUserList1(BasePageReqData pageQO) {
+		Page<UserList1> page = PageHelper.startPage(pageQO.getPageNum(), pageQO.getPageSize(), pageQO.getOrderBy());
 		userService.findAllUserList();
-        return PageVO.build(page);
+        return BasePageRespData.build(page);
     }
 	
 	//不分页，全部
@@ -228,9 +228,9 @@ public class PersonController {
 	@ResponseResult
 	@GetMapping
 	@RequestMapping(value = {"getAllUserList1"},method=RequestMethod.GET)
-    public BaseListRespData<UserList> getAllUserList1() {
-		List<UserList> userList = userService.findAllUserList();
-		BaseListRespData<UserList> baseListRespData = new BaseListRespData<UserList>();
+    public BaseListRespData<UserList1> getAllUserList1() {
+		List<UserList1> userList = userService.findAllUserList();
+		BaseListRespData<UserList1> baseListRespData = new BaseListRespData<UserList1>();
 		baseListRespData.setList(userList);
         return baseListRespData;
     }
@@ -423,17 +423,17 @@ public class PersonController {
 	//分页
 	@ResponseResult
 	@RequestMapping(value = {"getList1"})
-    public PageVO<User> getList1(PageQO pageQO) {
+    public BasePageRespData<User> getList1(BasePageReqData pageQO) {
 		Page<User> page = PageHelper.startPage(pageQO.getPageNum(), pageQO.getPageSize(), pageQO.getOrderBy());
 		personService.findAllUserList();
-        return PageVO.build(page);
+        return BasePageRespData.build(page);
     }
 	
 	//不分页
 	@ResponseResult
 	@RequestMapping(value = {"getList2"})
     public UserListRespData getList2() {
-		List<UserList> list = personService.findAllUserList();
+		List<UserList1> list = personService.findAllUserList();
 		UserListRespData userListRespData = new UserListRespData();
 		userListRespData.setExtr("扩展的东西");
 		userListRespData.setList(list);//new ArrayList<User>()
@@ -443,25 +443,25 @@ public class PersonController {
 	//分页
 	@ResponseResult
 	@RequestMapping(value = {"getList3"})
-    public PageVO<UserList> getList3(PageQO pageQO) {
-		PageVO<UserList> page = personService.findUserPage(pageQO);
+    public BasePageRespData<UserList1> getList3(BasePageReqData pageQO) {
+		BasePageRespData<UserList1> page = personService.findUserPage(pageQO);
         return page;
     }
 	
 	@ResponseResult
 	@RequestMapping(value = {"getList4"})
-    public BaseListRespData<UserList> getList4() {
-		BaseListRespData<UserList> baseListRespData = personService.findAllUserList2();
+    public BaseListRespData<UserList1> getList4() {
+		BaseListRespData<UserList1> baseListRespData = personService.findAllUserList2();
         return baseListRespData;
     }
 	
 	@ResponseResult
 	@RequestMapping(value = {"getUser"})
-    public BaseModelRespData<UserModel> getUser() {
+    public BaseModelRespData<UserModel1> getUser() {
 		
-		BaseModelRespData<UserModel> baseModelRespData = new BaseModelRespData<UserModel>();
+		BaseModelRespData<UserModel1> baseModelRespData = new BaseModelRespData<UserModel1>();
 		
-		UserModel user1 = new UserModel();
+		UserModel1 user1 = new UserModel1();
 //		user1.setGender("123");
 //		user1.setNickname("hh");
 		

@@ -2,7 +2,7 @@ package com.goosen.demo2.commons.utils;
 
 import com.goosen.demo2.commons.enums.ResultCode;
 import com.goosen.demo2.commons.exception.BusinessException;
-import com.goosen.demo2.commons.model.ParameterInvalidItem;
+import com.goosen.demo2.commons.model.commons.ParameterInvalidItem;
 
 
 /**

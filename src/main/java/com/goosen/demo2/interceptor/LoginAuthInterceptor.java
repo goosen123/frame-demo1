@@ -6,6 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
+
+
+
 //import com.zm.zhuma.user.token.service.LoginTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
@@ -15,8 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.goosen.demo2.commons.annotations.LoginAuth;
 import com.goosen.demo2.commons.enums.ResultCode;
 import com.goosen.demo2.commons.exception.BusinessException;
-import com.goosen.demo2.commons.model.bo.LoginToken;
-import com.goosen.demo2.commons.model.bo.LoginUser;
+import com.goosen.demo2.commons.model.po.login.LoginToken;
+import com.goosen.demo2.commons.model.po.login.LoginUser;
 import com.goosen.demo2.commons.utils.StringUtil;
 import com.goosen.demo2.helper.LoginTokenHelper;
 import com.goosen.demo2.service.LoginTokenService;

@@ -1,12 +1,14 @@
 package com.goosen.demo2.commons.helper;
 
 import com.google.common.collect.Lists;
-import com.goosen.demo2.commons.model.ParameterInvalidItem;
+import com.goosen.demo2.commons.model.commons.ParameterInvalidItem;
+
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
 import javax.validation.ConstraintViolation;
+
 import java.util.List;
 import java.util.Set;
 

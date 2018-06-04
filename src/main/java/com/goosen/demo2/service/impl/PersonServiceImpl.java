@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.goosen.demo2.commons.dao.UserDao;
-import com.goosen.demo2.commons.model.User;
-import com.goosen.demo2.commons.model.qo.PageQO;
+import com.goosen.demo2.commons.model.po.user.User;
+import com.goosen.demo2.commons.model.request.BasePageReqData;
 import com.goosen.demo2.commons.model.response.BaseListRespData;
-import com.goosen.demo2.commons.model.vo.PageVO;
-import com.goosen.demo2.model.response.user.UserList;
+import com.goosen.demo2.commons.model.response.BasePageRespData;
+import com.goosen.demo2.commons.model.response.user.UserList1;
 import com.goosen.demo2.service.PersonService;
 
 @Service
@@ -32,23 +32,23 @@ public class PersonServiceImpl implements PersonService{
 	}
 
 	@Override
-	public List<UserList> findAllUserList() {
+	public List<UserList1> findAllUserList() {
 		return userDao.findAllUserList();
 	}
 
 	@Override
-	public BaseListRespData<UserList> findAllUserList2() {
-		BaseListRespData<UserList> baseListRespData = new BaseListRespData<UserList>();
-		List<UserList> list = userDao.findAllUserList();
+	public BaseListRespData<UserList1> findAllUserList2() {
+		BaseListRespData<UserList1> baseListRespData = new BaseListRespData<UserList1>();
+		List<UserList1> list = userDao.findAllUserList();
 		baseListRespData.setList(list);
 		return baseListRespData;
 	}
 
 	@Override
-	public PageVO<UserList> findUserPage(PageQO pageQO) {
-		Page<UserList> page = PageHelper.startPage(pageQO.getPageNum(), pageQO.getPageSize(), pageQO.getOrderBy());
+	public BasePageRespData<UserList1> findUserPage(BasePageReqData pageQO) {
+		Page<UserList1> page = PageHelper.startPage(pageQO.getPageNum(), pageQO.getPageSize(), pageQO.getOrderBy());
 		userDao.findAllUserList();
-		return PageVO.build(page);
+		return BasePageRespData.build(page);
 	}
 	
 //	@Override

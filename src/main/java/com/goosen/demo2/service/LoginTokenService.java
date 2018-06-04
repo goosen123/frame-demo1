@@ -1,7 +1,7 @@
 package com.goosen.demo2.service;
 
 
-import com.goosen.demo2.commons.model.bo.LoginToken;
+import com.goosen.demo2.commons.model.po.login.LoginToken;
 
 /**
  * @desc 用户登录TOKEN服务

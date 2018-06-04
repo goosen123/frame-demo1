@@ -1,15 +1,19 @@
 package com.goosen.demo2.controller;
 
 import com.goosen.demo2.commons.annotations.ResponseResult;
-import com.goosen.demo2.commons.model.qo.LoginQO;
-import com.goosen.demo2.commons.model.vo.LoginVO;
+import com.goosen.demo2.commons.model.request.login.LoginQO;
+import com.goosen.demo2.commons.model.response.login.LoginVO;
 import com.goosen.demo2.service.LoginService;
 import com.goosen.demo2.commons.annotations.LoginAuth;
 //import com.zm.zhuma.commons.web.annotations.ResponseResult;
 //import com.zm.zhuma.commons.web.constants.Constants;
 
+
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
+
 
 
 //import lombok.extern.slf4j.Slf4j;

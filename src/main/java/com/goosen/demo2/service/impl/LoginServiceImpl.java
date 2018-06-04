@@ -1,10 +1,13 @@
 package com.goosen.demo2.service.impl;
 
 import com.goosen.demo2.commons.helper.PasswordHelper;
-import com.goosen.demo2.commons.model.User;
-import com.goosen.demo2.commons.model.qo.LoginQO;
-import com.goosen.demo2.commons.model.vo.LoginCredentialVO;
-import com.goosen.demo2.commons.model.vo.LoginVO;
+import com.goosen.demo2.commons.model.po.login.LoginCredential;
+import com.goosen.demo2.commons.model.po.login.LoginToken;
+import com.goosen.demo2.commons.model.po.login.LoginUser;
+import com.goosen.demo2.commons.model.po.user.User;
+import com.goosen.demo2.commons.model.request.login.LoginQO;
+import com.goosen.demo2.commons.model.response.login.LoginCredentialVO;
+import com.goosen.demo2.commons.model.response.login.LoginVO;
 import com.goosen.demo2.service.LoginService;
 import com.goosen.demo2.service.UserService;
 import com.goosen.demo2.commons.enums.CacheKeyEnum;
@@ -17,9 +20,6 @@ import com.goosen.demo2.commons.annotations.EnumValue;
 import com.goosen.demo2.commons.constants.HeaderConstants;
 //import com.zm.zhuma.user.client.LoginCredentialClient;
 //import com.zm.zhuma.user.client.UserClient;
-import com.goosen.demo2.commons.model.bo.LoginToken;
-import com.goosen.demo2.commons.model.bo.LoginUser;
-import com.goosen.demo2.commons.model.po.LoginCredential;
 import com.goosen.demo2.helper.LoginTokenHelper;
 import com.goosen.demo2.service.LoginTokenService;
 
@@ -76,8 +76,8 @@ public class LoginServiceImpl implements LoginService {
 	    loginCredential2.setPwd(loginCredential2Pwd);
 	    loginCredential2.setType("CUSTOM");
 	    loginCredential2.setUserId("123456789");
-	    Long id = new Long(12345678);
-	    loginCredential2.setId(id);
+	    //Long id = new Long(12345678);
+	    loginCredential2.setId("12345678");
 	    loginCredential2.setCreateTime(new Date());
 	    loginCredential2.setUpdateTime(new Date());
 	    List<LoginCredential> loginCredentialList = new ArrayList<LoginCredential>();

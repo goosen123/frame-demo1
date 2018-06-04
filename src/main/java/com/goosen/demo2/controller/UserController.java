@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.goosen.demo2.commons.annotations.ResponseResult;
+import com.goosen.demo2.commons.model.request.user.UserCommitReqData;
 import com.goosen.demo2.commons.model.response.BaseCudRespData;
 import com.goosen.demo2.commons.utils.CheckUtil;
 import com.goosen.demo2.commons.utils.RequestContextUtil;
-import com.goosen.demo2.model.request.user.UserCommitReqData;
 
 /**
  * 用户Controller

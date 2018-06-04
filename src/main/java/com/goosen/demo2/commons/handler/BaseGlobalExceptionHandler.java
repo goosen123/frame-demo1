@@ -3,7 +3,7 @@ package com.goosen.demo2.commons.handler;
 import com.goosen.demo2.commons.enums.ResultCode;
 import com.goosen.demo2.commons.exception.BusinessException;
 import com.goosen.demo2.commons.helper.ParameterInvalidItemHelper;
-import com.goosen.demo2.commons.model.ParameterInvalidItem;
+import com.goosen.demo2.commons.model.commons.ParameterInvalidItem;
 import com.goosen.demo2.commons.result.DefaultErrorResult;
 
 import org.slf4j.Logger;

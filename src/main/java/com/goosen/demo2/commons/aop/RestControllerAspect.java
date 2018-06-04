@@ -25,7 +25,7 @@ import com.google.common.collect.Lists;
 import com.goosen.demo2.commons.annotations.GetMapping;
 import com.goosen.demo2.commons.constants.HeaderConstants;
 import com.goosen.demo2.commons.handler.GlobalExceptionHandler;
-import com.goosen.demo2.commons.model.bo.LoginUser;
+import com.goosen.demo2.commons.model.po.login.LoginUser;
 //import com.alibaba.fastjson.JSON;
 //import com.alibaba.fastjson.JSONObject;
 import com.goosen.demo2.commons.utils.IpUtil;

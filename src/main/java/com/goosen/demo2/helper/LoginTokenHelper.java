@@ -5,12 +5,13 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.goosen.demo2.commons.model.bo.LoginToken;
-import com.goosen.demo2.commons.model.bo.LoginUser;
+import com.goosen.demo2.commons.model.po.login.LoginToken;
+import com.goosen.demo2.commons.model.po.login.LoginUser;
 import com.goosen.demo2.commons.annotations.LoginAuth;
 import com.goosen.demo2.commons.utils.CookieUtil;
 import com.goosen.demo2.commons.utils.RequestContextUtil;
 import com.goosen.demo2.commons.utils.StringUtil;
+
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**

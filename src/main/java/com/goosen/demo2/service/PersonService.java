@@ -2,20 +2,20 @@ package com.goosen.demo2.service;
 
 import java.util.List;
 
-import com.goosen.demo2.commons.model.User;
-import com.goosen.demo2.commons.model.qo.PageQO;
+import com.goosen.demo2.commons.model.po.user.User;
+import com.goosen.demo2.commons.model.request.BasePageReqData;
 import com.goosen.demo2.commons.model.response.BaseListRespData;
-import com.goosen.demo2.commons.model.vo.PageVO;
-import com.goosen.demo2.model.response.user.UserList;
+import com.goosen.demo2.commons.model.response.BasePageRespData;
+import com.goosen.demo2.commons.model.response.user.UserList1;
 
 public interface PersonService{
 	String insertest(String testStr);
 	int updateLoginInfo(User user);
-	List<UserList> findAllUserList();
+	List<UserList1> findAllUserList();
 	
-	BaseListRespData<UserList> findAllUserList2();
+	BaseListRespData<UserList1> findAllUserList2();
 	
-	PageVO<UserList> findUserPage(PageQO pageQO);
+	BasePageRespData<UserList1> findUserPage(BasePageReqData pageQO);
 	
 //	/**
 //     * 根据条件分页查询

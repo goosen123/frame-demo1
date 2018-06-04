@@ -1,8 +1,10 @@
 package com.goosen.demo2.resolver;
 
 import com.goosen.demo2.commons.annotations.LoginAuth;
-import com.goosen.demo2.commons.model.bo.LoginUser;
+import com.goosen.demo2.commons.model.po.login.LoginUser;
 import com.goosen.demo2.helper.LoginTokenHelper;
+
+
 
 //import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;

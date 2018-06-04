@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.goosen.demo2.commons.dao.UserDao;
-import com.goosen.demo2.commons.model.User;
-import com.goosen.demo2.model.response.user.UserList;
+import com.goosen.demo2.commons.model.po.user.User;
+import com.goosen.demo2.commons.model.response.user.UserList1;
 import com.goosen.demo2.service.UserService;
 
 @Service
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserList> findAllUserList() {
+	public List<UserList1> findAllUserList() {
 		return userDao.findAllUserList();
 	}
 

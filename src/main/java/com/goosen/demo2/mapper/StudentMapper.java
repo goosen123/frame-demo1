@@ -1,6 +1,6 @@
 package com.goosen.demo2.mapper;
 
-import com.goosen.demo2.commons.model.User;
+import com.goosen.demo2.commons.model.po.user.User;
 
 import tk.mybatis.mapper.common.Mapper;
 

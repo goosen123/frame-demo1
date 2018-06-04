@@ -4,9 +4,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.goosen.demo2.commons.enums.CacheKeyEnum;
-import com.goosen.demo2.commons.model.bo.LoginToken;
+import com.goosen.demo2.commons.model.po.login.LoginToken;
 import com.goosen.demo2.service.LoginTokenService;
 import com.goosen.demo2.service.impl.LoginTokenCacheServiceImpl;
+
+
 //import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 //import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
