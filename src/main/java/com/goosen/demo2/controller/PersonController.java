@@ -1,5 +1,11 @@
 package com.goosen.demo2.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -34,7 +40,6 @@ import com.goosen.demo2.commons.annotations.LoginAuth;
 import com.goosen.demo2.commons.annotations.ResponseResult;
 import com.goosen.demo2.commons.enums.ResultCode;
 import com.goosen.demo2.commons.exception.BusinessException;
-import com.goosen.demo2.commons.model.commons.ParameterInvalidItem;
 import com.goosen.demo2.commons.model.po.user.User;
 import com.goosen.demo2.commons.model.request.BaseDeleteReqData;
 import com.goosen.demo2.commons.model.request.BasePageReqData;
@@ -54,10 +59,6 @@ import com.goosen.demo2.commons.utils.IdGenUtil;
 import com.goosen.demo2.commons.utils.RequestContextUtil;
 import com.goosen.demo2.service.PersonService;
 import com.goosen.demo2.service.UserService;
-
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 
 @Api(value="用户管理",description="用户管理")//value = "用户管理",tags={"用户管理"}
 @RestController
@@ -197,13 +198,17 @@ public class PersonController {
 	}
 	
 	@ApiOperation(value="获取用户2")
+	@ApiImplicitParams({
+	    @ApiImplicitParam(name = "id", value = "用户ID", required = true, paramType = "String"),
+	    @ApiImplicitParam(name = "usernick", value = "用户昵称", paramType = "String")})
 	@ResponseResult
 	@GetMapping
-	@RequestMapping(value = {"getUser2"},method=RequestMethod.GET)
-	public BaseModelRespData<User> getUser2(@ApiParam(name="id",value="用户id",required=true)String id) {
+	@RequestMapping(value = {"getUser2"},method=RequestMethod.GET)//
+	public BaseModelRespData<User> getUser2(String id,String usernick) {//@ApiParam(name="id",value="用户id",required=true)String id,@ApiParam(name="usernick",value="用户昵称")String usernick
 		
 		log.info("进来getUser2<<<<<<<<<<<<<<<<<<<<");
-		log.info("接收的参数：id"+id);
+		log.info("接收的参数：id:"+id);
+		log.info("接收的参数：usernick:"+usernick);
 		
 		BaseModelRespData<User> baseModelRespData = new BaseModelRespData<User>();
 		User user = userService.get(id);
