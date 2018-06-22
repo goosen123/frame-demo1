@@ -32,14 +32,14 @@ public class PersonServiceImpl implements PersonService{
 	}
 
 	@Override
-	public List<UserList1> findAllUserList() {
-		return userDao.findAllUserList();
+	public List<UserList1> findAllUserList(String id,String nickname,String gender) {
+		return userDao.findAllUserList(id,nickname,gender);
 	}
 
 	@Override
 	public BaseListRespData<UserList1> findAllUserList2() {
 		BaseListRespData<UserList1> baseListRespData = new BaseListRespData<UserList1>();
-		List<UserList1> list = userDao.findAllUserList();
+		List<UserList1> list = userDao.findAllUserList(null,null,null);
 		baseListRespData.setList(list);
 		return baseListRespData;
 	}
@@ -47,7 +47,7 @@ public class PersonServiceImpl implements PersonService{
 	@Override
 	public BasePageRespData<UserList1> findUserPage(BasePageReqData pageQO) {
 		Page<UserList1> page = PageHelper.startPage(pageQO.getPageNum(), pageQO.getPageSize(), pageQO.getOrderBy());
-		userDao.findAllUserList();
+		userDao.findAllUserList(null,null,null);
 		return BasePageRespData.build(page);
 	}
 	

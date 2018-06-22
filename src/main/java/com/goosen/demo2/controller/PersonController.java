@@ -224,7 +224,7 @@ public class PersonController {
 	@RequestMapping(value = {"getUserList1"},method=RequestMethod.GET)
     public BasePageRespData<UserList1> getUserList1(BasePageReqData pageQO) {
 		Page<UserList1> page = PageHelper.startPage(pageQO.getPageNum(), pageQO.getPageSize(), pageQO.getOrderBy());
-		userService.findAllUserList();
+		userService.findAllUserList(null,"祝祝",null);
         return BasePageRespData.build(page);
     }
 	
@@ -234,7 +234,7 @@ public class PersonController {
 	@GetMapping
 	@RequestMapping(value = {"getAllUserList1"},method=RequestMethod.GET)
     public BaseListRespData<UserList1> getAllUserList1() {
-		List<UserList1> userList = userService.findAllUserList();
+		List<UserList1> userList = userService.findAllUserList(null,"祝祝",null);
 		BaseListRespData<UserList1> baseListRespData = new BaseListRespData<UserList1>();
 		baseListRespData.setList(userList);
         return baseListRespData;
@@ -426,24 +426,24 @@ public class PersonController {
 	}
 	
 	//分页
-	@ResponseResult
-	@RequestMapping(value = {"getList1"})
-    public BasePageRespData<User> getList1(BasePageReqData pageQO) {
-		Page<User> page = PageHelper.startPage(pageQO.getPageNum(), pageQO.getPageSize(), pageQO.getOrderBy());
-		personService.findAllUserList();
-        return BasePageRespData.build(page);
-    }
+//	@ResponseResult
+//	@RequestMapping(value = {"getList1"})
+//    public BasePageRespData<User> getList1(BasePageReqData pageQO) {
+//		Page<User> page = PageHelper.startPage(pageQO.getPageNum(), pageQO.getPageSize(), pageQO.getOrderBy());
+//		personService.findAllUserList();
+//        return BasePageRespData.build(page);
+//    }
 	
 	//不分页
-	@ResponseResult
-	@RequestMapping(value = {"getList2"})
-    public UserListRespData getList2() {
-		List<UserList1> list = personService.findAllUserList();
-		UserListRespData userListRespData = new UserListRespData();
-		userListRespData.setExtr("扩展的东西");
-		userListRespData.setList(list);//new ArrayList<User>()
-        return userListRespData;
-    }
+//	@ResponseResult
+//	@RequestMapping(value = {"getList2"})
+//    public UserListRespData getList2() {
+//		List<UserList1> list = personService.findAllUserList();
+//		UserListRespData userListRespData = new UserListRespData();
+//		userListRespData.setExtr("扩展的东西");
+//		userListRespData.setList(list);//new ArrayList<User>()
+//        return userListRespData;
+//    }
 	
 	//分页
 	@ResponseResult

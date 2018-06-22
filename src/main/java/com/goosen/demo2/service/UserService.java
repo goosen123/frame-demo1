@@ -11,6 +11,6 @@ public interface UserService extends BaseService,UserDao{
 	@Override
 	public int updateLoginInfo(User user);
 	@Override
-	public List<UserList1> findAllUserList();
+	public List<UserList1> findAllUserList(String id,String nickname,String gender);
 	
 }

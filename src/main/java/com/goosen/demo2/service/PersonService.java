@@ -11,7 +11,7 @@ import com.goosen.demo2.commons.model.response.user.UserList1;
 public interface PersonService{
 	String insertest(String testStr);
 	int updateLoginInfo(User user);
-	List<UserList1> findAllUserList();
+	List<UserList1> findAllUserList(String id,String nickname,String gender);
 	
 	BaseListRespData<UserList1> findAllUserList2();
 	

@@ -61,12 +61,22 @@
 	</update>
 	
 	<!-- 查询全部用户 -->
-	<select id="findAllUserList" resultType="UserList">
+	<select id="findAllUserList" resultType="UserList1">
 		SELECT
 			a.id,
 			a.nickname,
 			a.gender
 		FROM user a
+		WHERE 1=1
+			<if test="id != null and id != ''">
+				AND a.id  = #{id}
+			</if>
+			<if test="nickname != null and nickname != ''">
+				AND a.nickname  = #{nickname}
+			</if>
+			<if test="gender != null and gender != ''">
+				AND a.gender  = #{gender}
+			</if>
 	</select>
 	
 </mapper>
